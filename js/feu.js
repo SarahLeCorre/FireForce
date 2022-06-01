@@ -19,7 +19,7 @@ async function RecupFeu() {
                             
     const responseText = await response.text();   //.text();
     var Lfeu = JSON.parse(responseText);
-    console.log(Lfeu);
+    //console.log(Lfeu);
     return Lfeu;
 }
 
@@ -29,11 +29,25 @@ async function afficheFeu(){
     
     var Lfeu = await RecupFeu();
 
-    console.log(Lfeu);
-    console.log("ca continue ?");
+    //console.log(Lfeu);
+    //console.log("ca continue ?");
+
+
 
     for (i=0;i<Lfeu.length;i++){
-        new mapboxgl.Marker().setLngLat([Lfeu[i]["lon"],Lfeu[i]["lat"]]).addTo(map)
+        var nom = "Feu" + String(i);
+
+        var el = document.createElement('div');
+        el.className = nom;
+
+        // create the popup
+        var popup = new mapboxgl.Popup({ offset: 25 }).setText(
+        nom +' Bonjour');
+
+        new mapboxgl.Marker(el)
+                .setLngLat([Lfeu[i]["lon"],Lfeu[i]["lat"]])
+                .setPopup(popup)
+                .addTo(map);
     }
 
     //On garde parce qu'on a le seum d'avoir fait tout ca pour rien

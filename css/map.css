@@ -1,2 +1,33 @@
 #map { width : 1000px; height : 600px; }
+
+/*
+.mapboxgl-popup {
+    max-width: 200px;
+  }
   
+.mapboxgl-popup-content {
+text-align: center;
+font-family: 'Open Sans', sans-serif;
+}*/
+
+
+.Feu0 {
+    background-image: url('https://docs.mapbox.com/mapbox-gl-js/assets/washington-monument.jpg');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.Feu1{
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+     
+.mapboxgl-popup {
+max-width: 200px;
+}
