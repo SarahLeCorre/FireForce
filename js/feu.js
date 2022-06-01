@@ -23,11 +23,15 @@ async function RecupFeu() {
     return Lfeu;
 }
 
+//[{"id":59,"type":"B_Gasoline","intensity":50.0,"range":50.0,"lon":4.808583763718545,"lat":45.793118996773316},{"id":57,"type":"C_Flammable_Gases","intensity":50.0,"range":50.0,"lon":4.8260937761478795,"lat":45.732333858926715}]
+
 
 //Permet d'afficher les feux sur la carte
 async function afficheFeu(){ 
     
     var Lfeu = await RecupFeu();
+
+    
 
     //console.log(Lfeu);
     //console.log("ca continue ?");
@@ -40,11 +44,13 @@ async function afficheFeu(){
         var el = document.createElement('div');
         el.className = "Feu";
 
+        
         // create the popup
-        var popup = new mapboxgl.Popup({ offset: 25 }).setText(
-        nom +' Bonjour');
+        var popup = new mapboxgl.Popup({ offset: 25 })
+            .setText(nom +' type : ' + Lfeu[i]['type'] +' intensity : '+ Lfeu[i]['intensity'] +' range : '+ Lfeu[i]['range'] );
 
-        new mapboxgl.Marker(el)
+        
+        new mapboxgl.Marker()
                 .setLngLat([Lfeu[i]["lon"],Lfeu[i]["lat"]])
                 .setPopup(popup)
                 .addTo(map);
