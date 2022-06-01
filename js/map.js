@@ -20,6 +20,7 @@ map.on('load', function() {
   }
 );
 
+
 map.on('load', function() {
    
     // … ajout source
