@@ -5,11 +5,6 @@ var map = new mapboxgl.Map({
   
 });
 
-//Marqueurs de casernes
-new mapboxgl.Marker().setLngLat([2.35,48.85]).addTo(map); // Création d'un pointeur aux coord 2.35,48.85
-
-
-
 map.on('load', function() {
    
     // … ajout source
