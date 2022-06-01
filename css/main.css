@@ -22,9 +22,9 @@ body{
 
 
 /* Header */
-.menu{
+.navbar{
 
-	background-color: rgba(42, 40, 40, 0.95);
+	background-color: rgba(65, 63, 63, 0.95);
 	padding-bottom: 12px;
 	width: auto;
 	height: 80px;
@@ -57,7 +57,7 @@ body{
 }
 .text_footer{
 	vertical-align: text-bottom;
-	color: rgb(65, 14, 14);
+	color: rgb(255, 255, 255);
 }
 
 
