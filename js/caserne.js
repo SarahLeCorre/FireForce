@@ -14,3 +14,5 @@ async function afficheCaserne() {
 
 }
 
+window.onload(afficheCaserne());
+
