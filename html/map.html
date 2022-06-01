@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/main.css">
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" crossorigin=""></script>
     <script src="../script/map.js"></script>
+    <script src="../js/map.js"></script>
     <title> Fire Force</title>
 
 </head>
@@ -17,29 +18,32 @@
 
     <div id='map'>
 
-    </div>
 
     <header>
-        <div class="Nav">
-            <ul class="navbar">
-                <li>
-                    <a href="../html/map.html">Map</a>
-                </li>
-                <li>
-                    <a href="../html/caserne.html">Caserne</a>
-                </li>
-            </ul>
-        </div>
+
+        <nav class="menu" role="navigation">
+            <ul class="inner" id="inner_header">
+                <li class="li-m-link"><a href="map.html" class="linkMap"> Map </a> 
+                <li class="li-m-link"><a href="caserne.html" class="linkCaserne"> Caserne </a>
+          </ul>
+        </nav>
+
+
+
     </header> 
+
+
 
     <h1> Fire Force</h1>
 
+    <div id='map'>
+
+    </div>
+
     <div id="carteFeu"></div>
 
-<script src="../script/map.js"></script>
+    <script src="../js/map.js"></script>
 </body>
 
-<footer> 
-
-</footer>
+<footer> </footer>
 </html>
