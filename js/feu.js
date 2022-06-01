@@ -35,4 +35,51 @@ async function afficheFeu(){
     for (i=0;i<Lfeu.length;i++){
         new mapboxgl.Marker().setLngLat([Lfeu[i]["lon"],Lfeu[i]["lat"]]).addTo(map)
     }
+
+    //On garde parce qu'on a le seum d'avoir fait tout ca pour rien
+    /*
+    map.on('load', function() {
+
+        for (i=0;i<Lfeu.length;i++){
+            var nom = "Feu" + String(i);
+    
+            console.log("rentre dans le for");
+
+            var fire = {
+                "geometry": {
+                    "coordinates": [
+                        Lfeu[i]["lon"], //longitude
+                        Lfeu[i]["lat"] //latitude
+                    ],
+                    "type": "Point"
+                },
+                "type": "Feature",
+                "properties": {
+                    "name": nom
+                }
+            };
+
+            map.addSource(nom+'_point',
+                        { 'type': 'geojson', 'data': fire }
+            );
+
+
+            map.addLayer({
+                'id': nom+'_layer_name',
+                'type': 'symbol',
+                'source': nom+'_point',
+                'layout': {
+                    'text-field': ['get', 'name']
+                }
+        
+            });
+
+            fire = {};
+            
+            console.log(Lfeu);
+        }
+    
+    }); 
+    */ 
+    
 }
