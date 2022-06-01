@@ -10,8 +10,8 @@ map.on('load', function() {
     // … ajout layers
  
     const bounds = [
-      [-6.494917884024034, 51.69935897822677],  // Coin Sud-Ouest
-      [9.732690059356145, 41.25166002712723]    // Coin Nord-Est
+      [4.744501, 45.666358],  // Coin Sud-Ouest
+      [5.065028, 45.860391]    // Coin Nord-Est
     ];
  
     map.fitBounds(bounds);
@@ -24,29 +24,29 @@ map.on('load', function() {
  
     // … centrer la carte
  
-    const paris = {
+    const lyon = {
        "geometry": {
          "coordinates": [
-            2.350773675310819,
-            48.86015558292965
+            4.849664, //longitude
+            45.7603831 //latitude
           ],
          "type": "Point"
        },
        "type": "Feature",
        "properties": {
-         "name": "Paris"
+         "name": "Lyon"
        }
     };
  
-   map.addSource('paris_point',
-                 { 'type': 'geojson', 'data': paris }
+   map.addSource('lyon_point',
+                 { 'type': 'geojson', 'data': lyon }
     );
  
  
     map.addLayer({
-             'id': 'paris_layer_name',
+             'id': 'lyon_layer_name',
              'type': 'symbol',
-             'source': 'paris_point',
+             'source': 'lyon_point',
              'layout': {
                'text-field': ['get', 'name']
              }
