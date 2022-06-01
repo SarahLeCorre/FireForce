@@ -21,7 +21,7 @@ font-family: 'Open Sans', sans-serif;
 }
      
 .mapboxgl-popup {
-max-width: 200px;
+max-width: 100px;
 }
 
 .caserne {
