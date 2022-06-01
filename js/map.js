@@ -2,7 +2,20 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZmlyZWZvcmNlIiwiYSI6ImNsM3ZiYzB2bTB1ejQzanJ4d
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/satellite-streets-v11'
+  
 });
+
+//Marqueurs de casernes
+var coordCas = afficheCaserne();
+
+console.log(coordCas); // affiche latitude
+
+
+
+new mapboxgl.Marker().setLngLat([2.35,48.85]).addTo(map); // Création d'un pointeur aux coord 2.35,48.85
+
+
+
 map.on('load', function() {
    
     // … ajout source
@@ -54,3 +67,4 @@ map.on('load', function() {
              }
          });
  });
+
