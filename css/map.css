@@ -11,16 +11,8 @@ font-family: 'Open Sans', sans-serif;
 }*/
 
 
-.Feu0 {
-    background-image: url('https://docs.mapbox.com/mapbox-gl-js/assets/washington-monument.jpg');
-    background-size: cover;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.Feu1{
+.Feu {
+    background-image:"../img/Feu.jpg";
     background-size: cover;
     width: 50px;
     height: 50px;

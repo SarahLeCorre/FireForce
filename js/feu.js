@@ -38,7 +38,7 @@ async function afficheFeu(){
         var nom = "Feu" + String(i);
 
         var el = document.createElement('div');
-        el.className = nom;
+        el.className = "Feu";
 
         // create the popup
         var popup = new mapboxgl.Popup({ offset: 25 }).setText(
