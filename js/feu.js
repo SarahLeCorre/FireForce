@@ -47,10 +47,10 @@ async function afficheFeu(){
         
         // create the popup
         var popup = new mapboxgl.Popup({ offset: 25 })
-            .setText(nom +' type : ' + Lfeu[i]['type'] +' intensity : '+ Lfeu[i]['intensity'] +' range : '+ Lfeu[i]['range'] );
+            .setText('FEU | Type : ' + Lfeu[i]['type'] +' | Intensity : '+ Lfeu[i]['intensity'] +' | Range : '+ Lfeu[i]['range'] );
 
         
-        new mapboxgl.Marker()
+        new mapboxgl.Marker(el)
                 .setLngLat([Lfeu[i]["lon"],Lfeu[i]["lat"]])
                 .setPopup(popup)
                 .addTo(map);
