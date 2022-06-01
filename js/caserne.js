@@ -5,12 +5,7 @@ var map = new mapboxgl.Map({
 });
 
 async function afficheCaserne() {
-<<<<<<< HEAD
     var response = await fetch('http://vps.cpe-sn.fr:8081/facility/86', {
-=======
-
-    const response = await fetch('http://vps.cpe-sn.fr:8081/facility/86', {
->>>>>>> 1104a0b23d951efebe718c907033532f5bb23b70
                             method: 'GET',     
                             });
     const responseTest = await response.text();
@@ -22,12 +17,6 @@ async function afficheCaserne() {
 
 
                             
-<<<<<<< HEAD
-};
-
-
-  
-=======
     const responseText = await response.text();    
     console.log(responseText); // logs 'OK'
     var caserne =JSON.parse(responseText); // Transforme le string en JSON
@@ -41,4 +30,3 @@ async function afficheCaserne() {
     return tab;
 
 }
->>>>>>> 1104a0b23d951efebe718c907033532f5bb23b70

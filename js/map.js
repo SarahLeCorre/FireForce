@@ -31,10 +31,6 @@ map.on('load', function() {
   }
 );
 
-<<<<<<< HEAD
-
-;
-=======
 map.on('load', function() {
    
     // … ajout source
@@ -72,4 +68,3 @@ map.on('load', function() {
          });
  });
 
->>>>>>> 1104a0b23d951efebe718c907033532f5bb23b70
