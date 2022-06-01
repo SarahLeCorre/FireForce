@@ -10,9 +10,24 @@ async function afficheCaserne() {
                             });
     const responseTest = await response.text();
     var caserneJSON=JSON.parse(responseTest);
-    new mapboxgl.Marker({color:"#05fb2e"}).setLngLat([caserneJSON.lon,caserneJSON.lat]).addTo(map)
+    var nom = "caserne";
+    var nomCaserne=caserneJSON.name;                        
+    var maxVehicleSpace=caserneJSON.maxVehicleSpace;
+    var peopleCapacity=caserneJSON.peopleCapacity;
 
+    var el = document.createElement('div');
+        el.className = nom;
+
+        // create the popup
+        var popup = new mapboxgl.Popup({ offset: 25 }).setText(
+        nom+':'+nomCaserne+"\n maxVehicleSpace:"+maxVehicleSpace+'\br peopleCapacity:'+peopleCapacity );
+
+        new mapboxgl.Marker(el)
+                .setLngLat([caserneJSON["lon"],caserneJSON["lat"]])
+                .setPopup(popup)
+                .addTo(map);
 }
+
 
 window.onload(afficheCaserne());
 
