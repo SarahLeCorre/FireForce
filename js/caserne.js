@@ -5,4 +5,7 @@ async function afficheCaserne() {
                             
     const responseText = await response.text();    
     console.log(responseText); // logs 'OK'
+    var long =JSON.parse(responseText); // Transforme le string en JSON
+    console.log(long.lon); // affiche longitude
+ 
 }
