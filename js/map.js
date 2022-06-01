@@ -5,17 +5,6 @@ var map = new mapboxgl.Map({
   
 });
 
-//Marqueurs de casernes
-var coordCas = afficheCaserne();
-
-console.log(coordCas); // affiche latitude
-
-
-
-new mapboxgl.Marker().setLngLat([2.35,48.85]).addTo(map); // Création d'un pointeur aux coord 2.35,48.85
-
-
-
 map.on('load', function() {
    
     // … ajout source
@@ -31,45 +20,5 @@ map.on('load', function() {
   }
 );
 
-<<<<<<< HEAD
 
-;
-=======
-map.on('load', function() {
-   
-    // … ajout source
- 
-    // … ajout layers
- 
-    // … centrer la carte
- 
-    const lyon = {
-       "geometry": {
-         "coordinates": [
-            4.849664, //longitude
-            45.7603831 //latitude
-          ],
-         "type": "Point"
-       },
-       "type": "Feature",
-       "properties": {
-         "name": "Lyon"
-       }
-    };
- 
-   map.addSource('lyon_point',
-                 { 'type': 'geojson', 'data': lyon }
-    );
- 
- 
-    map.addLayer({
-             'id': 'lyon_layer_name',
-             'type': 'symbol',
-             'source': 'lyon_point',
-             'layout': {
-               'text-field': ['get', 'name']
-             }
-         });
- });
 
->>>>>>> 1104a0b23d951efebe718c907033532f5bb23b70
