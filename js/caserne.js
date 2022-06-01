@@ -20,7 +20,7 @@ async function afficheCaserne() {
 
         // create the popup
         var popup = new mapboxgl.Popup({ offset: 25 }).setText(
-        nom+':'+nomCaserne+"\r maxVehicleSpace:"+maxVehicleSpace+'\r peopleCapacity:'+peopleCapacity );
+        nom+':'+nomCaserne+"     maxVehicleSpace:"+maxVehicleSpace+'    peopleCapacity:'+peopleCapacity );
 
         new mapboxgl.Marker(el)
                 .setLngLat([caserneJSON["lon"],caserneJSON["lat"]])
@@ -29,5 +29,5 @@ async function afficheCaserne() {
 }
 
 
-window.onload=afficheCaserne();
+window.onload=afficheCaserne(); // lance fonction lors de l'actualisation de la fenêtre
 
