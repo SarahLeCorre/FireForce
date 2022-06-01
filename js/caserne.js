@@ -1,9 +1,28 @@
-async function afficheCaserne() {
+mapboxgl.accessToken = 'pk.eyJ1IjoiZmlyZWZvcmNlIiwiYSI6ImNsM3ZiYzB2bTB1ejQzanJ4dWJudjg2MjgifQ.R0qQLerxhp73rgRAVG6nSw';
+var map = new mapboxgl.Map({
+  container: 'map',
+  style: 'mapbox://styles/mapbox/satellite-streets-v11'
+});
 
-    const response = await fetch('http://vps.cpe-sn.fr:8081/facility/86', {
+async function afficheCaserne() {
+    var response = await fetch('http://vps.cpe-sn.fr:8081/facility/86', {
                             method: 'GET',     
                             });
+    const responseTest = await response.text();
+    var caserneJSON=JSON.parse(responseTest);
+    
+    console.log(responseTest);
+    
+    
+
+
                             
+<<<<<<< HEAD
+};
+
+
+  
+=======
     const responseText = await response.text();    
     console.log(responseText); // logs 'OK'
     var caserne =JSON.parse(responseText); // Transforme le string en JSON
@@ -17,4 +36,8 @@ async function afficheCaserne() {
     return tab;
 
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1104a0b23d951efebe718c907033532f5bb23b70
+>>>>>>> 92b2272d29a238c5bb86f80757a69d6e2e8126eb
