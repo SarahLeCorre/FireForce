@@ -10,7 +10,7 @@ async function afficheCaserne() {
                             });
     const responseTest = await response.text();
     var caserneJSON=JSON.parse(responseTest);
-    new mapboxgl.Marker().setLngLat([caserneJSON.lon,caserneJSON.lat]).addTo(map)
+    new mapboxgl.Marker({color:"#05fb2e"}).setLngLat([caserneJSON.lon,caserneJSON.lat]).addTo(map)
 
 }
 
