@@ -6,12 +6,6 @@ var map = new mapboxgl.Map({
 });
 
 //Marqueurs de casernes
-var coordCas = afficheCaserne();
-
-console.log(coordCas); // affiche latitude
-
-
-
 new mapboxgl.Marker().setLngLat([2.35,48.85]).addTo(map); // Création d'un pointeur aux coord 2.35,48.85
 
 

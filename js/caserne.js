@@ -13,7 +13,8 @@ async function afficheCaserne() {
     console.log("long : ",longitude); // affiche longitude
     console.log("lat : ",latitude); // affiche latitude
   //  console.log(tab); 
-  
+
     return tab;
 
 }
+
