@@ -29,5 +29,5 @@ async function afficheCaserne() {
 }
 
 
-window.onload=afficheCaserne();
+window.onload=afficheCaserne(); // lance fonction lors de l'actualisation de la fenêtre
 
