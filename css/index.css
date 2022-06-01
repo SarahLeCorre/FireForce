@@ -1,0 +1,89 @@
+/* Mise en page Globale*/
+
+/* Pour ne pas avoir d'espace blanc sur les bords de notre page*/
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/* On enlève le soulignement de nos hyperliens*/
+a:link, a:visited{ 
+ text-decoration:none; 
+}
+/* on enleve les puces des listes*/
+ul {
+list-style-type: none;
+}
+
+body{
+	background-color: rgb(59, 59, 59);
+	z-index:0;
+}
+
+
+/* Header */
+.menu{
+
+	background-color: rgba(42, 40, 40, 0.95);
+	padding-bottom: 12px;
+	width: auto;
+	height: 80px;
+	line-height: 100px; /*Pour centrer le texte de notre en-tete*/
+}
+.inner{
+	width: 100%;
+}
+
+
+/*Partie de gauche avec les différents navigateurs*/
+.li-m-link{
+	float: left;
+	
+}
+
+.li-m-link a{
+	vertical-align: baseline;
+	padding: 15px;
+	margin: 15px;
+	color: white;
+	font-size: 15px;
+	font-family: 'MS Sans Serif', Geneva, sans-serif;
+	text-transform: uppercase;
+	border: 1px solid;
+	border-color: transparent;
+	transition: 0.5s;
+	
+
+}
+.text_footer{
+	vertical-align: text-bottom;
+	color: rgb(65, 14, 14);
+}
+
+
+.li-m-link a:hover{
+	border-color: white;
+}
+/* Footer*/
+
+
+footer{
+
+    height:40px;
+    width: 100%;
+ 	bottom: 0;
+    position:relative;
+   
+    padding-top: 20px;
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #333;
+}
+
+footer p{
+	color:white;
+}
+
+.test{
+	vertical-align: baseline;
+}
