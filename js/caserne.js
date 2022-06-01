@@ -20,7 +20,7 @@ async function afficheCaserne() {
 
         // create the popup
         var popup = new mapboxgl.Popup({ offset: 25 }).setText(
-        nom+':'+nomCaserne+"     maxVehicleSpace:"+maxVehicleSpace+'    peopleCapacity:'+peopleCapacity );
+        nom+':'+nomCaserne+"       \nmaxVehicleSpace:"+maxVehicleSpace+'       \npeopleCapacity:'+peopleCapacity );
 
         new mapboxgl.Marker(el)
                 .setLngLat([caserneJSON["lon"],caserneJSON["lat"]])
