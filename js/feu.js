@@ -32,6 +32,12 @@ async function afficheFeu(){
     console.log(Lfeu);
     console.log("ca continue ?");
 
+    for (i=0;i<Lfeu.length;i++){
+        new mapboxgl.Marker().setLngLat([Lfeu[i]["lon"],Lfeu[i]["lat"]]).addTo(map)
+    }
+
+    //On garde parce qu'on a le seum d'avoir fait tout ca pour rien
+    /*
     map.on('load', function() {
 
         for (i=0;i<Lfeu.length;i++){
@@ -73,6 +79,7 @@ async function afficheFeu(){
             console.log(Lfeu);
         }
     
-    });  
+    }); 
+    */ 
     
 }
