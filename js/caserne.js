@@ -5,7 +5,10 @@ async function afficheCaserne() {
                             
     const responseText = await response.text();    
     console.log(responseText); // logs 'OK'
-    var long =JSON.parse(responseText); // Transforme le string en JSON
-    console.log(long.lon); // affiche longitude
- 
+    var caserne =JSON.parse(responseText); // Transforme le string en JSON
+    var longitude = caserne.lon; //Récupération de la longitude
+    var latitude = caserne.lat; // Récupération de la latitude
+    
+    console.log("long : ",longitude); // affiche longitude
+    console.log("lat : ",latitude); // affiche latitude
 }
