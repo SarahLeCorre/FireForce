@@ -18,39 +18,5 @@ map.on('load', function() {
   }
 );
 
-map.on('load', function() {
-   
-    // … ajout source
- 
-    // … ajout layers
- 
-    // … centrer la carte
- 
-    const lyon = {
-       "geometry": {
-         "coordinates": [
-            4.849664, //longitude
-            45.7603831 //latitude
-          ],
-         "type": "Point"
-       },
-       "type": "Feature",
-       "properties": {
-         "name": "Lyon"
-       }
-    };
- 
-   map.addSource('lyon_point',
-                 { 'type': 'geojson', 'data': lyon }
-    );
- 
- 
-    map.addLayer({
-             'id': 'lyon_layer_name',
-             'type': 'symbol',
-             'source': 'lyon_point',
-             'layout': {
-               'text-field': ['get', 'name']
-             }
-         });
- });
+
+;
