@@ -5,7 +5,7 @@ var map = new mapboxgl.Map({
 });
 
 async function afficheCaserne() {
-    var response = await fetch('http://vps.cpe-sn.fr:8081/facility/86', {
+    var response = await fetch('http://vps.cpe-sn.fr:8081/facility/186', {
                             method: 'GET',     
                             });
     const responseTest = await response.text();
@@ -19,8 +19,8 @@ async function afficheCaserne() {
         el.className = nom;
 
         // create the popup
-        var popup = new mapboxgl.Popup({ offset: 25 }).setText(
-        nom+':'+nomCaserne+"       \nmaxVehicleSpace:"+maxVehicleSpace+'       \npeopleCapacity:'+peopleCapacity );
+        var popup = new mapboxgl.Popup({ offset: 25 }).setHTML('<h1> '+
+        nom+' </h1></br><p>'+nomCaserne+"</p><p>Vehicle Space : "+maxVehicleSpace+'</p><p>People Capacity : '+peopleCapacity +'</p>');
 
         new mapboxgl.Marker(el)
                 .setLngLat([caserneJSON["lon"],caserneJSON["lat"]])

@@ -8,7 +8,7 @@ async function creationVehicule() {
         liquidQuantity : 30,
         fuel : 100,
         crewMember : 0,
-        facilityRefID : 86
+        facilityRefID : 186
         //attack: document.querySelector("input[name='attack']").value
     }
 

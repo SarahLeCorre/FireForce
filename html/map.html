@@ -27,10 +27,23 @@
     <h1> Fire Force</h1>
     <div id="bouton">
         <button class="BoutonVehicule" onclick="creationVehicule ()" type="button">Ajout Véhicule</button>
-        <button class="BoutonVehicule" onclick="SuppressionVehicules ()" type="button">Supprime tous les Véhicules</button>
-    </div> 
-    <div id="map">
         
+        <!--BUG DES PROF NE PAS SUPPRIMER LES VEHICULES
+            <button class="BoutonVehicule" onclick="SuppressionVehicules ()" type="button">Supprime tous les Véhicules</button>
+        -->
+        <button class="BoutonFeu" onclick="TriFeu ()" type="button">Tri Feu</button>
+        <button class="BoutonFeu" onclick="EssaiFiltre ()" type="button"> EssaiFiltre</button>
+        <button class="BoutonFeu" onclick="EssaiDisp()" type="button">EssaiDisp</button>
+
+        <form class="FormulaireTri">
+            <input type="checkbox" id="FeuA">
+            <label for="FeuA"> Feu A, feu sec</label></br>
+            <button class="Submit" onclick="Affichageform()" type="button">Submit</button>
+        </form>
+        
+    </div> 
+    
+    <div id="map">
     </div>
 
     
