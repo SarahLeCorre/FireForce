@@ -28,33 +28,35 @@ async function afficheFeu(){
     for (i=0;i<Lfeu.length;i++){
         if (LTypeTot[0].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
-            el.className = "FeuA";
+            el.className = "FireA";
         }
         else if (LTypeTot[1].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
-            el.className = "FeuB_G";
+            el.className = "FireB_G";
         }
         else if(LTypeTot[2].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
-            el.className = "FeuB_A";
+            el.className = "FireB_A";
         }
-        else if(LTypeTot[4].includes(Lfeu[i]['id'])){
+        else if(LTypeTot[3].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
-            el.className = "FeuB_P";
+            el.className = "FireB_P";
+        }
+        else if (LTypeTot[4].includes(Lfeu[i]['id'])){
+            var el = document.createElement('div');
+            el.className = "FireC";
         }
         else if (LTypeTot[5].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
-            el.className = "FeuC";
-        }
-        else if (LTypeTot[6].includes(Lfeu[i]['id'])){
-            var el = document.createElement('div');
-            el.className = "FeuD";
+            el.className = "FireD";
         }
         else {
             var el = document.createElement('div');
-            el.className = "FeuE";
+            el.className = "FireE";
         }
-            
+        
+        var I = document.getElementById("intensite");
+        
     
         // create the popup
         var popup = new mapboxgl.Popup({ offset: 25 })
@@ -76,9 +78,7 @@ function EssaiFiltre(){
     
     for (i=0;i<feuTest.length;i++){
         var el = document.createElement('div');
-        el.setAttribute("id", "FeuTester");
-        var name = "FEUTEST";//+String(feuTest[i]["id"]);
-        el.className = name;
+        el.className = "FEUTEST";
    
         // create the popup
         var popup = new mapboxgl.Popup({ offset: 25 })
@@ -100,66 +100,97 @@ function EssaiDisp(){
     }
 }
 //--------------------------------------------------------
-//
-
 function Affichageform(){
 
     if (document.getElementById("FeuA").checked == true){
-        console.log("CHECKED")
-        var FeuA = document.getElementsByClassName("FeuA");
-        FeuA.style.display="block";
+        elA = document.getElementsByClassName("FireA");
+        for (i=0; i<elA.length; i++) { 
+            elA[i].style.display = "block";
+        }
     }
     else{
-        console.log("NOT CHECKED")
-        FeuA.style.display="none";
+        elA = document.getElementsByClassName("FireA");
+        for (i=0; i<elA.length; i++) { 
+            elA[i].style.display="none";
+        }
     }
 
     if (document.getElementById("FeuB_G").checked == true){
-        var FeuB_G = document.getElementsByClassName("FeuB_G");
-        FeuB_G.style.display="block";
+        elB_G = document.getElementsByClassName("FireB_G");
+        for (i=0; i<elB_G.length; i++) { 
+            elB_G[i].style.display = "block";
+        }
     }
     else{
-        FeuB_G.style.display="none";
+        elB_G = document.getElementsByClassName("FireB_G");
+        for (i=0; i<elB_G.length; i++) { 
+            elB_G[i].style.display="none";
+        }   
     }
 
     if (document.getElementById("FeuB_A").checked == true){
-        var FeuB_A = document.getElementsByClassName("FeuB_A");
-        FeuB_A.style.display="block";
+        elB_A = document.getElementsByClassName("FireB_A");
+        for (i=0; i<elB_A.length; i++) { 
+            elB_A[i].style.display = "block";
+        }
     }
     else{
-        FeuB_A.style.display="none";
+        elB_A = document.getElementsByClassName("FireB_A");
+        for (i=0; i<elB_A.length; i++) { 
+            elB_A[i].style.display="none";
+        }
     }
 
     if (document.getElementById("FeuB_P").checked == true){
-        var FeuB_P = document.getElementsByClassName("FeuB_P");
-        FeuB_P.style.display="block";
+        elB_P = document.getElementsByClassName("FireB_P");
+        for (i=0; i<elB_P.length; i++) { 
+            elB_P[i].style.display = "block";
+        }
     }
     else{
-        FeuB_P.style.display="none";
+        elB_P = document.getElementsByClassName("FireB_P");
+        for (i=0; i<elB_P.length; i++) { 
+            elB_P[i].style.display="none";
+        }
     }
 
     if (document.getElementById("FeuC").checked == true){
-        var FeuC = document.getElementsByClassName("FeuC");
-        FeuC.style.display="block";
+        elC = document.getElementsByClassName("FireC");
+        for (i=0; i<elC.length; i++) { 
+            elC[i].style.display = "block";
+        }
     }
     else{
-        FeuC.style.display="none";
+        elC = document.getElementsByClassName("FireC");
+        for (i=0; i<elC.length; i++) { 
+            elC[i].style.display="none";
+        }
     }
 
     if (document.getElementById("FeuD").checked == true){
-        var FeuD = document.getElementsByClassName("FeuD");
-        FeuD.style.display="block";
+        elD = document.getElementsByClassName("FireD");
+        for (i=0; i<elD.length; i++) { 
+            elD[i].style.display = "block";
+        }
     }
     else{
-        FeuD.style.display="none";
+        elD = document.getElementsByClassName("FireD");
+        for (i=0; i<elD.length; i++) { 
+            elD[i].style.display="none";
+        }
     }
 
     if (document.getElementById("FeuE").checked == true){
-        var FeuE = document.getElementsByClassName("FeuE");
-        FeuE.style.display="block";
+        elE = document.getElementsByClassName("FireE");
+        for (i=0; i<elE.length; i++) { 
+            elE[i].style.display = "block";
+        }
     }
     else{
-        FeuE.style.display="none";
+        elE = document.getElementsByClassName("FireE");
+        for (i=0; i<elE.length; i++) { 
+            elE[i].style.display="none";
+        }
     }
 }
 
