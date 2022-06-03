@@ -30,42 +30,34 @@ async function afficheFeu(){
     for (i=0;i<Lfeu.length;i++){
         if (LTypeTot[0].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
-            el.className = "FireA";
-            el.setAttribute("id",String(Lfeu[i]['id']));
+            el.className = "A";
         }
         else if (LTypeTot[1].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
-            el.className = "FireB_G";
-            el.setAttribute("id",String(Lfeu[i]['id']));
+            el.className = "B_Gasoline";
         }
         else if(LTypeTot[2].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
-            el.className = "FireB_A";
-            el.setAttribute("id",String(Lfeu[i]['id']));
+            el.className = "B_Alcohol";
         }
         else if(LTypeTot[3].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
-            el.className = "FireB_P";
-            el.setAttribute("id",String(Lfeu[i]['id']));
+            el.className = "B_Plastics";
         }
         else if (LTypeTot[4].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
-            el.className = "FireC";
-            el.setAttribute("id",String(Lfeu[i]['id']));
+            el.className = "C_Flammable_Gases";
         }
         else if (LTypeTot[5].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
-            el.className = "FireD";
-            el.setAttribute("id",String(Lfeu[i]['id']));
+            el.className = "D_Metals";
         }
         else {
             var el = document.createElement('div');
-            el.className = "FireE";
-            el.setAttribute("id",String(Lfeu[i]['id']));
+            el.className = "E_Electric";
             
         }
-    
-        console.log(el.id);
+
         // create the popup
         var popup = new mapboxgl.Popup({ offset: 25 })
             .setHTML('<h1> FEU </h1> </br> <p> Type : ' + Lfeu[i]['type'] +'</p><p>Intensity : '+ Lfeu[i]['intensity'] +'</p><p>Range : '+ Lfeu[i]['range']+'</p>' );
@@ -83,7 +75,7 @@ async function afficheFeu(){
 
 async function Affichageform(){
     
-    var Fires = ["FireA","FireB_G","FireB_A","FireB_P","FireC","FireD","FireE"];
+    var Fires = ["A","B_Gasoline","B_Alcohol","B_Plastics","C_Flammable_Gases","D_Metals","E_Electric"];
     var Feux = ["FeuA","FeuB_G","FeuB_A","FeuB_P","FeuC","FeuD","FeuE"];
     for (k=0; k<Fires.length;k++){
         el = document.getElementsByClassName(Fires[k]);     
@@ -104,40 +96,52 @@ async function TriIntensite(){
     var Lfeu = await RecupFeu();
     var I = document.getElementById("intensite").value;
 
-    var IdFeuGrand = [];
-    var IdFeuPetit = [];
+    var TypeFeuGrand = [];
+    var TypeFeuPetit = [];
     
     for (i=0;i<Lfeu.length;i++){
         if ( Lfeu[i]["intensity"]>=I){
-            IdFeuGrand.push(Lfeu[i]["id"]);
+            TypeFeuGrand.push(Lfeu[i]["type"]);
         }
         else {
-            IdFeuPetit.push(Lfeu[i]["id"]);
+            TypeFeuPetit.push(Lfeu[i]["type"]);
         }
     }   
-    var Var = [IdFeuGrand,IdFeuPetit]
+    var Var = [TypeFeuGrand,TypeFeuPetit];
     return Var;   
 }
 
-function DisplayAvecIntensity(){
+async function DisplayAvecIntensity(){
 
-    var Var = TriIntensite();
-    var IdFeuGrand = Var[0];
-    var IdFeuPetit = Var[1]
+    var Var = await TriIntensite();
 
-    for (k=0; k<IdFeuGrand.length;k++) {
-        eli = document.getElementById(String(IdFeuGrand[k])); 
-        for (m=0;m<eli.length;m++){
-            eli[m].style.display = "block";   
-        }    
+    var TypeFeuGrandGrand = Var[0];
+    var TypeFeuGrandPetit = Var[1]
+
+    for (k=0; k<TypeFeuGrandGrand.length;k++) {
+        var eli = document.getElementsByClassName(TypeFeuGrandGrand[k]); 
+        if (eli!=null){
+            for (m=0;m<eli.length;m++){
+                eli[m].style.display = "block";   
+            }    
+        }
     }
-    for (l=0; l<IdFeuPetit.length;l++) {
-        eli = document.getElementById(String(IdFeuPetit[l])); 
-        for (n=0;n<eli.length;n++){
-            eli[n].style.display = "none";   
-        }    
+    for (l=0; l<TypeFeuGrandPetit.length;l++) {
+        var elii = document.getElementsByClassName(TypeFeuGrandPetit[l]); 
+        
+        if (elii!=null){
+            for (n=0;n<elii.length;n++){
+                elii[n].style.display = "none";   
+            }  
+        }
+          
     }
 }
+//Explication pourquoi marche pas
+//Parce que si un feu d'un type est en dessous de I alors tous les feux du type disparaisse
+//Il faudrait separer avec ID mais j'y arrive pas encore
+
+
 
 //var Fires = ["FireA","FireB_G","FireB_A","FireB_P","FireC","FireD","FireE"];
         

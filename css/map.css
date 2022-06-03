@@ -12,7 +12,7 @@ font-family: 'Open Sans', sans-serif;
 
 /*FeuA, FeuB_G, FeuB_A, FeuB_P, FeuC, FeuD, FeuE*/
 
-.FireA {
+.A {
     background-image: url("../img/FeuRouge.jfif");
     background-size: cover;
     width: 20px;
@@ -22,7 +22,7 @@ font-family: 'Open Sans', sans-serif;
     display: block;
 }
 
-.FireB_G {
+.B_Gasoline {
     background-image: url("../img/FeuBleu.jfif");
     background-size: cover;
     width: 20px;
@@ -32,7 +32,7 @@ font-family: 'Open Sans', sans-serif;
     display: block;
 }
 
-.FireB_A {
+.B_Alcohol {
     background-image: url("../img/FeuJaune.jfif");
     background-size: cover;
     width: 20px;
@@ -41,7 +41,7 @@ font-family: 'Open Sans', sans-serif;
     cursor: pointer;
     display: block;
 }
-.FireB_P {
+.B_Plastics {
     background-image: url("../img/FeuNoir.jfif");
     background-size: cover;
     width: 20px;
@@ -50,7 +50,7 @@ font-family: 'Open Sans', sans-serif;
     cursor: pointer;
     display: block;
 }
-.FireC {
+.C_Flammable_Gases {
     background-image: url("../img/FeuRainbow.jfif");
     background-size: cover;
     width: 20px;
@@ -59,7 +59,7 @@ font-family: 'Open Sans', sans-serif;
     cursor: pointer;
     display: block;
 }
-.FireD {
+.D_Metals {
     background-image: url("../img/FeuVert.jfif");
     background-size: cover;
     width: 20px;
@@ -68,7 +68,7 @@ font-family: 'Open Sans', sans-serif;
     cursor: pointer;
     display: block;
 }
-.FireE {
+.E_Electric {
     background-image: url("../img/FeuViolet.jfif");
     background-size: cover;
     width: 20px;
