@@ -92,6 +92,19 @@ async function afficheVehicle(){
             if (LVehicle['type']=='CAR'){
                 el.className = "CAR";
             }
+            else if(LVehicle['type']=='FIRE_ENGINE'){
+                el.className = "TRUCK";
+            }
+            else if(LVehicle['type']=='PUMPER_TRUCK'){
+                el.className = "TRUCK";
+            }
+            else if(LVehicle['type']=='WATER_TENDER'){
+                el.className = "TRUCK";
+            }
+            
+            else if(LVehicle['type']=='TURNTABLE_LADDER_TRUCK'){
+                el.className = "TRUCK";
+            }
             else if(LVehicle['type']=='TRUCK'){
                 el.className = "TRUCK";
             }

@@ -112,6 +112,37 @@ font-family: 'Open Sans', sans-serif;
     display: block;
 }
 
+.FIRE_ENGINE {
+    background-image: url("../img/FIRE_ENGINE.jpg");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+}
+
+.PUMPER_TRUCK {
+    background-image: url("../img/PUMPER_TRUCK.jpg");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+}
+
+.TURNTABLE_LADDER_TRUCK {
+    background-image: url("../img/TURNTABLE_LADDER_TRUCK.jpg");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+}
+
+
 
 .caserne {
     background-image: url('../img/caserne.jpg');
