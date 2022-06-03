@@ -19,35 +19,33 @@ async function RecupFeu() {
     return Lfeu;
 }
 
-//Permet d'afficher les feux sur la carte
-//FeuA, FeuB_G, FeuB_A, FeuB_P, FeuC, FeuD, FeuE
+//Permet d'afficher les feux sur la carte en fonction des différents types
 async function afficheFeu(){ 
-    
     var Lfeu = await RecupFeu();
     var LTypeTot = TriFeu(Lfeu);
 
     for (i=0;i<Lfeu.length;i++){
-        if (Lfeu[i]['id']==LTypeTot[0]){
+        if (LTypeTot[0].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
             el.className = "FeuA";
         }
-        else if (Lfeu[i]['id']==LTypeTot[1]){
+        else if (LTypeTot[1].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
             el.className = "FeuB_G";
         }
-        else if(Lfeu[i]['id']==LTypeTot[2]){
+        else if(LTypeTot[2].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
             el.className = "FeuB_A";
         }
-        else if(Lfeu[i]['id']==LTypeTot[4]){
+        else if(LTypeTot[4].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
             el.className = "FeuB_P";
         }
-        else if (Lfeu[i]['id']==LTypeTot[5]){
+        else if (LTypeTot[5].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
             el.className = "FeuC";
         }
-        else if (Lfeu[i]['id']==LTypeTot[6]){
+        else if (LTypeTot[6].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
             el.className = "FeuD";
         }
@@ -101,14 +99,66 @@ function EssaiDisp(){
     }
 }
 //--------------------------------------------------------
+//
 
 function Affichageform(){
 
     if (document.getElementById("FeuA").checked == true){
         console.log("CHECKED")
+        var FeuA = document.getElementsByClassName("FeuA");
+        FeuA.style.display="block";
     }
     else{
         console.log("NOT CHECKED")
+        FeuA.style.display="none";
+    }
+
+    if (document.getElementById("FeuB_G").checked == true){
+        var FeuB_G = document.getElementsByClassName("FeuB_G");
+        FeuB_G.style.display="block";
+    }
+    else{
+        FeuB_G.style.display="none";
+    }
+
+    if (document.getElementById("FeuB_A").checked == true){
+        var FeuB_A = document.getElementsByClassName("FeuB_A");
+        FeuB_A.style.display="block";
+    }
+    else{
+        FeuB_A.style.display="none";
+    }
+
+    if (document.getElementById("FeuB_P").checked == true){
+        var FeuB_P = document.getElementsByClassName("FeuB_P");
+        FeuB_P.style.display="block";
+    }
+    else{
+        FeuB_P.style.display="none";
+    }
+
+    if (document.getElementById("FeuC").checked == true){
+        var FeuC = document.getElementsByClassName("FeuC");
+        FeuC.style.display="block";
+    }
+    else{
+        FeuC.style.display="none";
+    }
+
+    if (document.getElementById("FeuD").checked == true){
+        var FeuD = document.getElementsByClassName("FeuD");
+        FeuD.style.display="block";
+    }
+    else{
+        FeuD.style.display="none";
+    }
+
+    if (document.getElementById("FeuE").checked == true){
+        var FeuE = document.getElementsByClassName("FeuE");
+        FeuE.style.display="block";
+    }
+    else{
+        FeuE.style.display="none";
     }
 }
 
