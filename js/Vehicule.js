@@ -50,7 +50,7 @@ async function RecupVehicle() {
                             });                //Doit renvoyer la liste des id de nos vehicules       
     const responseText = await response.text();   //.text();
     var LVehicle = JSON.parse(responseText);
-    console.log(LVehicle);
+    //console.log(LVehicle);
     return LVehicle; //liste des id de nos vehicules
 }
 
@@ -61,34 +61,56 @@ async function afficheVehicle(){
     
     var LVehicle = await RecupVehicle();
    // var LTypeTot = TriVehicle(LVehicle);
+    var longueur = Object.keys(LVehicle).length;
+    var response=[];
+    var responseText=[];
+   
+    //console.log('longueur : ',longueur);
+    for (i=0;i<longueur;i++){
 
-    for (i=0;i<LVehicle.length;i++){
-
-        const response = await fetch('http://vps.cpe-sn.fr:8081/vehicle/'+ LVehicle[i], {
+       // console.log('responsetext',responseText);
+            response[i] = await fetch('http://vps.cpe-sn.fr:8081/vehicle/'+ LVehicle[i], {
             method: 'GET',     
             }); 
-
-        const responseText = await response.text();   //.text();
-        var LVehicle = JSON.parse(responseText);
-        console.log('eeeeeeeeeee',responseText);
-       
-
-        var el = document.createElement('div');
-        el.className = "CAR";
-
-       //console.log('test');
-
-        // create the popup
-        var popup = new mapboxgl.Popup({ offset: 25 })
-            .setHTML('<h1> VEHICLE </h1> </br> <p> ID :'+ LVehicle['id'] +'</p> <p> Type : '+ LVehicle['type'] +'</p> <p> Type Liquide : '+ LVehicle['liquidType'] +'</p> <p> Liquid Quantity : '+ LVehicle['liquidQuantity'] +'</p> <p> Fuel : '+ LVehicle['fuel'] +'</p> <p> Crew Members : '+ LVehicle['crewMember'] +'</p> <p> Caserne : '+ LVehicle['facilityRefID'] +'</p>'      );
-            //.setHTML('<h1> Vehicle </h1> </br> <p> Type : ' + LVehicle[i]['type'] +'</p><p>Intensity : '+ LVehicle[i]['intensity'] +'</p><p>Range : '+ LVehicle[i]['range']+'</p>' );
-
         
-        new mapboxgl.Marker(el)
-                .setLngLat([4.780758,45.773])
-                .setPopup(popup)
-                .addTo(map);
-    } 
+            //console.log('tableau',i,response[i]);
+            
+            responseText[i] = await response[i].text();   //.text();
+            
+            //console.log('TEXT',i,responseText[i]);
+        
+        }
+    //console.log('responsetext',response);
+
+       var  LVehicle;
+       for (i=0;i<longueur;i++){
+
+            LVehicle = JSON.parse(responseText[i]);
+
+            var el = document.createElement('div');
+            el.className = "CAR";
+
+            // create the popup
+            var popup = new mapboxgl.Popup({ offset: 25 })
+                .setHTML('<h1> VEHICLE </h1> </br> <p> ID :'+ LVehicle['id'] +'</p> <p> Type : '+ LVehicle['type'] +'</p> <p> Type Liquide : '+ LVehicle['liquidType'] +'</p> <p> Liquid Quantity : '+ LVehicle['liquidQuantity'] +'</p> <p> Fuel : '+ LVehicle['fuel'] +'</p> <p> Crew Members : '+ LVehicle['crewMember'] +'</p> <p> Caserne : '+ LVehicle['facilityRefID'] +'</p>'      );
+                //.setHTML('<h1> Vehicle </h1> </br> <p> Type : ' + LVehicle[i]['type'] +'</p><p>Intensity : '+ LVehicle[i]['intensity'] +'</p><p>Range : '+ LVehicle[i]['range']+'</p>' );
+        
+            
+            new mapboxgl.Marker(el)
+                    .setLngLat([LVehicle['lon'],LVehicle['lat']])
+                    .setPopup(popup)
+                    .addTo(map);
+        
+            //console.log('i:',i);
+            // console.log(LVehicle);
+            //console.log('responsetext',responseText[i]);
+
+       }    
+
+
+
+
+     
    
 }
 
