@@ -89,6 +89,21 @@ font-family: 'Open Sans', sans-serif;
     display: block;
 }
 
+
+
+
+.CAR {
+    background-image: url("../img/FeuRainbow.jfif");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+}
+
+
+
 .caserne {
     background-image: url('../img/caserne.jpg');
     background-size: cover;

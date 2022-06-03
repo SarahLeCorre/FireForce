@@ -59,10 +59,15 @@ async function RecupVehicle() {
 async function afficheVehicle(){ 
     
     var LVehicle = await RecupVehicle();
-    //var LTypeTot = TriFeu(Lfeu);
+   // var LTypeTot = TriVehicle(LVehicle);
 
-    for (i=0;i<Lfeu.length;i++){
-        if (Lfeu[i]['id']==LTypeTot[0]){
+    for (i=0;i<LVehicle.length;i++){
+
+        var el = document.createElement('div');
+        el.className = "CAR";
+
+        /*
+        if (LVehicle[i]['id']==LTypeTot[0]){
             var el = document.createElement('div');
             el.className = "CAR";
         }
@@ -85,17 +90,19 @@ async function afficheVehicle(){
         else  (Lfeu[i]['id']==LTypeTot[6]){
             var el = document.createElement('div');
             el.className = "TRUCK";
+            */
         }
             
     
         // create the popup
         var popup = new mapboxgl.Popup({ offset: 25 })
-            .setHTML('<h1> FEU </h1> </br> <p> Type : ' + Lfeu[i]['type'] +'</p><p>Intensity : '+ Lfeu[i]['intensity'] +'</p><p>Range : '+ Lfeu[i]['range']+'</p>' );
+            .setHTML('<h1> VEHICLE </h1> </br> <p> Type : </p>' );
+           // .setHTML('<h1> Vehicle </h1> </br> <p> Type : ' + LVehicle[i]['type'] +'</p><p>Intensity : '+ LVehicle[i]['intensity'] +'</p><p>Range : '+ LVehicle[i]['range']+'</p>' );
 
         
         new mapboxgl.Marker(el)
-                .setLngLat([Lfeu[i]["lon"],Lfeu[i]["lat"]])
+                .setLngLat(4.78075858712092,45.7738485029332)
                 .setPopup(popup)
                 .addTo(map);
     } 
-}
+
