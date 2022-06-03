@@ -6,11 +6,11 @@ async function creationVehicule() {
     const object = {
         lon : 4.808583763718546,
         lat : 45.793118996773314,
-        type : "CAR",
+        type : "",
         liquidType : "ALL",
         liquidQuantity : 30,
         fuel : 100,
-        crewMember : 0,
+        crewMember : 5,
         facilityRefID : 186
     }
 
@@ -87,9 +87,31 @@ async function afficheVehicle(){
 
             LVehicle = JSON.parse(responseText[i]);
 
-            var el = document.createElement('div');
-            el.className = "CAR";
 
+            var el = document.createElement('div');
+            if (LVehicle['type']=='CAR'){
+                el.className = "CAR";
+            }
+            else if(LVehicle['type']=='FIRE_ENGINE'){
+                el.className = "FIRE_ENGINE";
+            }
+            else if(LVehicle['type']=='PUMPER_TRUCK'){
+                el.className = "PUMPER_TRUCK";
+            }
+            else if(LVehicle['type']=='WATER_TENDER'){
+                el.className = "WATER_TENDER";
+            }
+            
+            else if(LVehicle['type']=='TURNTABLE_LADDER_TRUCK'){
+                el.className = "TURNTABLE_LADDER_TRUCK";
+            }
+            else if(LVehicle['type']=='TRUCK'){
+                el.className = "TRUCK";
+            }
+            else{
+                el.className = "CAR";
+            }
+            
             // create the popup
             var popup = new mapboxgl.Popup({ offset: 25 })
                 .setHTML('<h1> VEHICLE </h1> </br> <p> ID :'+ LVehicle['id'] +'</p> <p> Type : '+ LVehicle['type'] +'</p> <p> Type Liquide : '+ LVehicle['liquidType'] +'</p> <p> Liquid Quantity : '+ LVehicle['liquidQuantity'] +'</p> <p> Fuel : '+ LVehicle['fuel'] +'</p> <p> Crew Members : '+ LVehicle['crewMember'] +'</p> <p> Caserne : '+ LVehicle['facilityRefID'] +'</p>'      );
@@ -105,12 +127,7 @@ async function afficheVehicle(){
             // console.log(LVehicle);
             //console.log('responsetext',responseText[i]);
 
-       }    
-
-
-
-
-     
+       }        
    
 }
 
