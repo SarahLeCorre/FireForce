@@ -1,6 +1,9 @@
 package com.sp.rest;
 
-import org.springframework.beans.BeanUtils;
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sp.model.Facility;
 import com.sp.model.Vehicle;
 import com.sp.service.FireForceService;
-import com.model.dto.VehicleDto;
 
 @RestController
 public class FireForceRestCrt {
@@ -59,7 +61,7 @@ public class FireForceRestCrt {
     @RequestMapping(method=RequestMethod.POST,value="/addFacility")
     public void addFacility(@RequestBody Facility facility) {
         fService.addFacility(facility);
-    }
+    }D:\Médias\Documents\Etudes supérieures\4 A CPE\ProjetMajeur\FireForce\fireForceService
     
     @RequestMapping(method=RequestMethod.GET,value="/getAllFire")
     public String getAllFire() {
@@ -73,6 +75,13 @@ public class FireForceRestCrt {
     	String fire = new String();
         fire=fService.getFire(id);
         return(fire);
+    }
+    
+    @RequestMapping(method=RequestMethod.GET,value="/idVehicles")
+    public ArrayList idVehicles() {
+    	ArrayList id = new ArrayList();
+    	id = fService.idVehicle();
+        return(id);
     }
     
     
