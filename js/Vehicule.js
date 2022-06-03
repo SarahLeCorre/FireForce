@@ -93,17 +93,17 @@ async function afficheVehicle(){
                 el.className = "CAR";
             }
             else if(LVehicle['type']=='FIRE_ENGINE'){
-                el.className = "TRUCK";
+                el.className = "FIRE_ENGINE";
             }
             else if(LVehicle['type']=='PUMPER_TRUCK'){
-                el.className = "TRUCK";
+                el.className = "PUMPER_TRUCK";
             }
             else if(LVehicle['type']=='WATER_TENDER'){
-                el.className = "TRUCK";
+                el.className = "WATER_TENDER";
             }
             
             else if(LVehicle['type']=='TURNTABLE_LADDER_TRUCK'){
-                el.className = "TRUCK";
+                el.className = "TURNTABLE_LADDER_TRUCK";
             }
             else if(LVehicle['type']=='TRUCK'){
                 el.className = "TRUCK";
