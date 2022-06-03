@@ -49,7 +49,7 @@ function EssaiFiltre(){
     for (i=0;i<feuTest.length;i++){
         var el = document.createElement('div');
         el.setAttribute("id", "FeuTester");
-        var name = "FEUTEST"+String(feuTest[i]["id"]);
+        var name = "FEUTEST";//+String(feuTest[i]["id"]);
         el.className = name;
    
         // create the popup
@@ -111,6 +111,8 @@ async function TriFeu(){
         else 
             TypeE.push(Lfeu[i]["id"]);   
     }
+
+    var LTypeTotal = [];
     /*
     console.log(Lfeu);console.log("TypeB_G"+TypeB_G);console.log("TypeB_A"+TypeB_A);console.log("TypeB_P"+TypeB_P);console.log("TypeC"+TypeC);console.log("TypeD"+TypeD);console.log("TypeE"+TypeE);
     */
