@@ -29,34 +29,43 @@ async function afficheFeu(){
 
     for (i=0;i<Lfeu.length;i++){
         if (LTypeTot[0].includes(Lfeu[i]['id'])){
+            var el = document.createElement('div');
             el.className = "FireA";
+            el.setAttribute("id",String(Lfeu[i]['id']));
         }
         else if (LTypeTot[1].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
             el.className = "FireB_G";
+            el.setAttribute("id",String(Lfeu[i]['id']));
         }
         else if(LTypeTot[2].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
             el.className = "FireB_A";
+            el.setAttribute("id",String(Lfeu[i]['id']));
         }
         else if(LTypeTot[3].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
             el.className = "FireB_P";
+            el.setAttribute("id",String(Lfeu[i]['id']));
         }
         else if (LTypeTot[4].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
             el.className = "FireC";
+            el.setAttribute("id",String(Lfeu[i]['id']));
         }
         else if (LTypeTot[5].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
             el.className = "FireD";
+            el.setAttribute("id",String(Lfeu[i]['id']));
         }
         else {
             var el = document.createElement('div');
             el.className = "FireE";
+            el.setAttribute("id",String(Lfeu[i]['id']));
+            
         }
     
-        
+        console.log(el.id);
         // create the popup
         var popup = new mapboxgl.Popup({ offset: 25 })
             .setHTML('<h1> FEU </h1> </br> <p> Type : ' + Lfeu[i]['type'] +'</p><p>Intensity : '+ Lfeu[i]['intensity'] +'</p><p>Range : '+ Lfeu[i]['range']+'</p>' );
@@ -71,7 +80,7 @@ async function afficheFeu(){
 
 //-----------------------------------------------------------------------------------------------------------------------
 //Déclanché par le bouton Submit du Formulaire et prend en compte les choix du form à mettre sur la map
-/*
+
 async function Affichageform(){
     
     var Fires = ["FireA","FireB_G","FireB_A","FireB_P","FireC","FireD","FireE"];
@@ -87,33 +96,51 @@ async function Affichageform(){
             }
 
         }
-    }       
-}*/
+    } 
+}
 
-async function Affichageform(){
+async function TriIntensite(){
 
     var Lfeu = await RecupFeu();
     var I = document.getElementById("intensite").value;
 
-    var Fires = ["FireA","FireB_G","FireB_A","FireB_P","FireC","FireD","FireE"];
-    var Feux = ["FeuA","FeuB_G","FeuB_A","FeuB_P","FeuC","FeuD","FeuE"];
-    for (k=0; k<Fires.length;k++){
-        el = document.getElementsByClassName(Fires[k]);     
-        for (i=0; i<el.length; i++) {
-            if (document.getElementById(Feux[k]).checked == true){ 
-                for (i=0;i<Lfeu.length;i++){
-                    if (Lfeu[i]["intensity"]>=I){
-                        el[i].style.display = "block";
-                    }
-                    else{
-                        el[i].style.display="none";
-                    }
-                }  
-            }
+    var IdFeuGrand = [];
+    var IdFeuPetit = [];
+    
+    for (i=0;i<Lfeu.length;i++){
+        if ( Lfeu[i]["intensity"]>=I){
+            IdFeuGrand.push(Lfeu[i]["id"]);
         }
-    }       
+        else {
+            IdFeuPetit.push(Lfeu[i]["id"]);
+        }
+    }   
+    var Var = [IdFeuGrand,IdFeuPetit]
+    return Var;   
 }
 
+function DisplayAvecIntensity(){
+
+    var Var = TriIntensite();
+    var IdFeuGrand = Var[0];
+    var IdFeuPetit = Var[1]
+
+    for (k=0; k<IdFeuGrand.length;k++) {
+        eli = document.getElementById(String(IdFeuGrand[k])); 
+        for (m=0;m<eli.length;m++){
+            eli[m].style.display = "block";   
+        }    
+    }
+    for (l=0; l<IdFeuPetit.length;l++) {
+        eli = document.getElementById(String(IdFeuPetit[l])); 
+        for (n=0;n<eli.length;n++){
+            eli[n].style.display = "none";   
+        }    
+    }
+}
+
+//var Fires = ["FireA","FireB_G","FireB_A","FireB_P","FireC","FireD","FireE"];
+        
 
 function TriFeu(Lfeu){
     //TRI PAR TYPE
@@ -143,7 +170,4 @@ function TriFeu(Lfeu){
 
     var LTypeTotal = [TypeA,TypeB_G,TypeB_A,TypeB_P,TypeC,TypeD,TypeE];
     return LTypeTotal;
-    /*
-    console.log(Lfeu);console.log("TypeB_G"+TypeB_G);console.log("TypeB_A"+TypeB_A);console.log("TypeB_P"+TypeB_P);console.log("TypeC"+TypeC);console.log("TypeD"+TypeD);console.log("TypeE"+TypeE);
-    */
 }
