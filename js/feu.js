@@ -19,33 +19,51 @@ async function RecupFeu() {
     return Lfeu;
 }
 
+
 async function afficheFeu(){ 
     var Lfeu = await RecupFeu();
     var LTypeTot = TriFeu(Lfeu);
 
-    var Lettres = ["A","B_G","B_A","B_P","C","D","E"];
+    
     for (i=0;i<Lfeu.length;i++){
-        for (k=0; k<LTypeTot.length;k++){
-            if (LTypeTot[k].includes(Lfeu[i]['id'])){
-                var el = document.createElement('div');
-                el.className = "Fire"+String(Lettres[k]);
-                el.setAttribute("id", Lfeu[i]['id']);
-            }
-
-            // create the popup
-            var popup = new mapboxgl.Popup()
-                .setHTML('<h1> FEU </h1> </br> <p> Type : ' + Lfeu[i]['type'] +'</p><p>Intensity : '+ Lfeu[i]['intensity'] +'</p><p>Range : '+ Lfeu[i]['range']+'</p>' );
-
-            
-            new mapboxgl.Marker(el)
-                    .setLngLat([Lfeu[i]["lon"],Lfeu[i]["lat"]])
-                    .setPopup(popup)
-                    .addTo(map);
-            
-            //Au début met tout les boxes checked pour voir tous les fires
-            document.getElementById("Feu"+String(Lettres[k])).checked = true;
+        if (LTypeTot[0].includes(Lfeu[i]['id'])){
+            el.className = "FireA";
         }
-    }
+        else if (LTypeTot[1].includes(Lfeu[i]['id'])){
+            var el = document.createElement('div');
+            el.className = "FireB_G";
+        }
+        else if(LTypeTot[2].includes(Lfeu[i]['id'])){
+            var el = document.createElement('div');
+            el.className = "FireB_A";
+        }
+        else if(LTypeTot[3].includes(Lfeu[i]['id'])){
+            var el = document.createElement('div');
+            el.className = "FireB_P";
+        }
+        else if (LTypeTot[4].includes(Lfeu[i]['id'])){
+            var el = document.createElement('div');
+            el.className = "FireC";
+        }
+        else if (LTypeTot[5].includes(Lfeu[i]['id'])){
+            var el = document.createElement('div');
+            el.className = "FireD";
+        }
+        else {
+            var el = document.createElement('div');
+            el.className = "FireE";
+        }
+    
+        // create the popup
+        var popup = new mapboxgl.Popup({ offset: 25 })
+            .setHTML('<h1> FEU </h1> </br> <p> Type : ' + Lfeu[i]['type'] +'</p><p>Intensity : '+ Lfeu[i]['intensity'] +'</p><p>Range : '+ Lfeu[i]['range']+'</p>' );
+
+        
+        new mapboxgl.Marker(el)
+                .setLngLat([Lfeu[i]["lon"],Lfeu[i]["lat"]])
+                .setPopup(popup)
+                .addTo(map);
+    } 
 }
 
 //--------------------------------------------------------
