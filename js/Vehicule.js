@@ -45,12 +45,12 @@ async function SuppressionVehicules() {
 
 //Permet de récupérer le json des vehicles sur l'api /vehicle
 async function RecupVehicle() {
-    const response = await fetch('http://vps.cpe-sn.fr:8081/vehicle', {
+    const response = await fetch('http://localhost:8081/idVehicles', {
                             method: 'GET',     
-                            });                       
+                            });                //Doit renvoyer la liste des id de nos vehicules       
     const responseText = await response.text();   //.text();
     var LVehicle = JSON.parse(responseText);
-    //console.log(LVehicle);
+    console.log(LVehicle);
     return LVehicle;
 }
 
@@ -64,6 +64,18 @@ async function afficheVehicle(){
 
    console.log(LVehicle);
     for (i=0;i<LVehicle.length;i++){
+
+
+        const response = await fetch('http://localhost:8081/'+ LVehicle[i], {
+            method: 'GET',     
+            });                //Doit renvoyer la liste des id de nos vehicules       
+        const responseText = await response.text();   //.text();
+        var LVehicle = JSON.parse(responseText);
+
+
+
+
+
 
         var el = document.createElement('div');
         el.className = "CAR";

@@ -77,11 +77,11 @@ public class FireForceRestCrt {
         return(fire);
     }
     
-    @RequestMapping(method=RequestMethod.GET,value="/posFire")
-    public ArrayList posFire() {
-    	ArrayList firePos = new ArrayList();
-    	firePos = fService.posFire();
-        return(firePos);
+    @RequestMapping(method=RequestMethod.GET,value="/idVehicles")
+    public ArrayList idVehicles() {
+    	ArrayList id = new ArrayList();
+    	id = fService.idVehicle();
+        return(id);
     }
     
     
