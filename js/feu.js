@@ -19,15 +19,14 @@ async function RecupFeu() {
     return Lfeu;
 }
 
-//Permet d'afficher les feux sur la carte en fonction des différents types
+
 async function afficheFeu(){ 
     var Lfeu = await RecupFeu();
     var LTypeTot = TriFeu(Lfeu);
 
-    console.log(Lfeu.length);
+    
     for (i=0;i<Lfeu.length;i++){
         if (LTypeTot[0].includes(Lfeu[i]['id'])){
-            var el = document.createElement('div');
             el.className = "FireA";
         }
         else if (LTypeTot[1].includes(Lfeu[i]['id'])){
@@ -54,9 +53,6 @@ async function afficheFeu(){
             var el = document.createElement('div');
             el.className = "FireE";
         }
-        
-        var I = document.getElementById("intensite");
-        
     
         // create the popup
         var popup = new mapboxgl.Popup({ offset: 25 })
@@ -70,129 +66,67 @@ async function afficheFeu(){
     } 
 }
 
-//marker.togglePopup(); // toggle popup open or closed
-//[{"id":59,"type":"B_Gasoline","intensity":50.0,"range":50.0,"lon":4.808583763718545,"lat":45.793118996773316},{"id":57,"type":"C_Flammable_Gases","intensity":50.0,"range":50.0,"lon":4.8260937761478795,"lat":45.732333858926715}]
-//TEST---------------------------------------------------
-function EssaiFiltre(){ 
-    var feuTest = [{"id":59,"type":"B_Gasoline","intensity":50.0,"range":50.0,"lon":4.808583763718545,"lat":45.793118996773316},{"id":57,"type":"C_Flammable_Gases","intensity":50.0,"range":50.0,"lon":4.8260937761478795,"lat":45.732333858926715}];
-    
-    for (i=0;i<feuTest.length;i++){
-        var el = document.createElement('div');
-        el.className = "FEUTEST";
-   
-        // create the popup
-        var popup = new mapboxgl.Popup({ offset: 25 })
-            .setHTML('<h1> FEUTEST </h1> </br> <p> Type : ' + feuTest[i]['type'] +'</p><p>Intensity : '+ feuTest[i]['intensity'] +'</p><p>Range : '+ feuTest[i]['range']+'</p>' );
-        
-        new mapboxgl.Marker(el)
-                .setLngLat([feuTest[i]["lon"],feuTest[i]["lat"]])
-                .setPopup(popup)
-                .addTo(map);
-
-    }  
-}
-
-function EssaiDisp(){
-    els = document.getElementsByClassName("FEUTEST");
-    console.log(els);
-    for (i=0; i<els.length; i++) { 
-        els[i].style.display = "none";
-    }
-}
 //--------------------------------------------------------
-function Affichageform(){
+async function LienTypeIntensite (){
+    var LGrandFeu = await TriIntensite();
+    var Lfeu = await RecupFeu();
+    var LTypeTotal = TriFeu(Lfeu);
 
-    if (document.getElementById("FeuA").checked == true){
+    for (j=0; j<LTypeTotal.length; j++){
+        for (i=0; i<LTypeTotal[j].length;i++){
+            if (LTypeTotal[j].includes(LGrandFeu[i])==false){
+                LTypeTotal[j].pop(LGrandFeu[i])
+            }
+        }
+    }
+
+    return LTypeTotal;
+    
+}
+
+
+async function Affichageform(){
+    /*
+        var LTypeTot = LienTypeIntensite();
+
         elA = document.getElementsByClassName("FireA");
         for (i=0; i<elA.length; i++) { 
-            elA[i].style.display = "block";
+            if (document.getElementById("FeuA").checked == true && LTypeTot[0].includes()){
+                elA[i].style.display = "block";
+            }
+            else{
+                elA[i].style.display="none";
+            }
         }
-    }
-    else{
-        elA = document.getElementsByClassName("FireA");
-        for (i=0; i<elA.length; i++) { 
-            elA[i].style.display="none";
-        }
-    }
+    */
+    
+    var Lettres = ["A","B_G","B_A","B_P","C","D","E"];
+    for (k=0; k<Lettres.length;k++){
+        el = document.getElementsByClassName("Fire"+String(Lettres[k]));     
+        for (i=0; i<el.length; i++) {
+            if (document.getElementById("Feu"+String(Lettres[k])).checked == true){ 
+                el[i].style.display = "block";
+            }
+            else{
+                el[i].style.display="none";
+            }
 
-    if (document.getElementById("FeuB_G").checked == true){
-        elB_G = document.getElementsByClassName("FireB_G");
-        for (i=0; i<elB_G.length; i++) { 
-            elB_G[i].style.display = "block";
-        }
-    }
-    else{
-        elB_G = document.getElementsByClassName("FireB_G");
-        for (i=0; i<elB_G.length; i++) { 
-            elB_G[i].style.display="none";
-        }   
-    }
-
-    if (document.getElementById("FeuB_A").checked == true){
-        elB_A = document.getElementsByClassName("FireB_A");
-        for (i=0; i<elB_A.length; i++) { 
-            elB_A[i].style.display = "block";
-        }
-    }
-    else{
-        elB_A = document.getElementsByClassName("FireB_A");
-        for (i=0; i<elB_A.length; i++) { 
-            elB_A[i].style.display="none";
-        }
-    }
-
-    if (document.getElementById("FeuB_P").checked == true){
-        elB_P = document.getElementsByClassName("FireB_P");
-        for (i=0; i<elB_P.length; i++) { 
-            elB_P[i].style.display = "block";
-        }
-    }
-    else{
-        elB_P = document.getElementsByClassName("FireB_P");
-        for (i=0; i<elB_P.length; i++) { 
-            elB_P[i].style.display="none";
-        }
-    }
-
-    if (document.getElementById("FeuC").checked == true){
-        elC = document.getElementsByClassName("FireC");
-        for (i=0; i<elC.length; i++) { 
-            elC[i].style.display = "block";
-        }
-    }
-    else{
-        elC = document.getElementsByClassName("FireC");
-        for (i=0; i<elC.length; i++) { 
-            elC[i].style.display="none";
-        }
-    }
-
-    if (document.getElementById("FeuD").checked == true){
-        elD = document.getElementsByClassName("FireD");
-        for (i=0; i<elD.length; i++) { 
-            elD[i].style.display = "block";
-        }
-    }
-    else{
-        elD = document.getElementsByClassName("FireD");
-        for (i=0; i<elD.length; i++) { 
-            elD[i].style.display="none";
-        }
-    }
-
-    if (document.getElementById("FeuE").checked == true){
-        elE = document.getElementsByClassName("FireE");
-        for (i=0; i<elE.length; i++) { 
-            elE[i].style.display = "block";
-        }
-    }
-    else{
-        elE = document.getElementsByClassName("FireE");
-        for (i=0; i<elE.length; i++) { 
-            elE[i].style.display="none";
         }
     }
 }
+
+async function TriIntensite(){
+    var Lfeu = await RecupFeu();
+    var I = document.getElementById("intensite").value;
+    var LGrandFeu = [];
+    for (i=0;i<Lfeu.length;i++){
+        if (Lfeu[i]["intensity"]>=I){
+            LGrandFeu.push(Lfeu[i]["id"]);
+        }
+    }
+    return LGrandFeu;
+}
+
 
 function TriFeu(Lfeu){
     //TRI PAR TYPE
