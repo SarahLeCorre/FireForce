@@ -61,7 +61,7 @@ public class FireForceRestCrt {
     @RequestMapping(method=RequestMethod.POST,value="/addFacility")
     public void addFacility(@RequestBody Facility facility) {
         fService.addFacility(facility);
-    }
+    }D:\Médias\Documents\Etudes supérieures\4 A CPE\ProjetMajeur\FireForce\fireForceService
     
     @RequestMapping(method=RequestMethod.GET,value="/getAllFire")
     public String getAllFire() {

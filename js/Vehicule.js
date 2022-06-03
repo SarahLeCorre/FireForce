@@ -84,7 +84,7 @@ async function afficheVehicle(){
 
         // create the popup
         var popup = new mapboxgl.Popup({ offset: 25 })
-            .setHTML('<h1> VEHICLE </h1> </br> <p> Type : </p>' );
+            .setHTML('<h1> VEHICLE </h1> </br> <p> ID : </p>' );
             //.setHTML('<h1> Vehicle </h1> </br> <p> Type : ' + LVehicle[i]['type'] +'</p><p>Intensity : '+ LVehicle[i]['intensity'] +'</p><p>Range : '+ LVehicle[i]['range']+'</p>' );
 
         
