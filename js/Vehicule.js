@@ -61,22 +61,24 @@ async function afficheVehicle(){
     
     var LVehicle = await RecupVehicle();
    // var LTypeTot = TriVehicle(LVehicle);
+    var longueur = Object.keys(LVehicle).length;
+    
+    //console.log('longueur : ',longueur);
+    for (i=0;i<2;i++){
 
-    for (i=0;i<LVehicle.length;i++){
-
-        const response = await fetch('http://vps.cpe-sn.fr:8081/vehicle/'+ LVehicle[i], {
+        var response = await fetch('http://vps.cpe-sn.fr:8081/vehicle/'+ LVehicle[i], {
             method: 'GET',     
             }); 
 
-        const responseText = await response.text();   //.text();
+        var responseText = await response.text();   //.text();
+
         var LVehicle = JSON.parse(responseText);
-        console.log('eeeeeeeeeee',responseText);
        
+        console.log('responsetext',responseText);
 
         var el = document.createElement('div');
         el.className = "CAR";
 
-       //console.log('test');
 
         // create the popup
         var popup = new mapboxgl.Popup({ offset: 25 })
@@ -85,9 +87,12 @@ async function afficheVehicle(){
 
         
         new mapboxgl.Marker(el)
-                .setLngLat([4.780758,45.773])
+                .setLngLat([LVehicle['lon'],LVehicle['lat']])
                 .setPopup(popup)
                 .addTo(map);
+
+        console.log('i:',i);
+       // console.log(LVehicle);
     } 
    
 }
