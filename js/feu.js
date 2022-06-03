@@ -20,14 +20,43 @@ async function RecupFeu() {
 }
 
 //Permet d'afficher les feux sur la carte
+//FeuA, FeuB_G, FeuB_A, FeuB_P, FeuC, FeuD, FeuE
 async function afficheFeu(){ 
     
     var Lfeu = await RecupFeu();
+    var LTypeTot = TriFeu(Lfeu);
 
     for (i=0;i<Lfeu.length;i++){
-        var el = document.createElement('div');
-        el.className = "Feu";
-   
+        if (Lfeu[i]['id']==LTypeTot[0]){
+            var el = document.createElement('div');
+            el.className = "FeuA";
+        }
+        else if (Lfeu[i]['id']==LTypeTot[1]){
+            var el = document.createElement('div');
+            el.className = "FeuB_G";
+        }
+        else if(Lfeu[i]['id']==LTypeTot[2]){
+            var el = document.createElement('div');
+            el.className = "FeuB_A";
+        }
+        else if(Lfeu[i]['id']==LTypeTot[4]){
+            var el = document.createElement('div');
+            el.className = "FeuB_P";
+        }
+        else if (Lfeu[i]['id']==LTypeTot[5]){
+            var el = document.createElement('div');
+            el.className = "FeuC";
+        }
+        else if (Lfeu[i]['id']==LTypeTot[6]){
+            var el = document.createElement('div');
+            el.className = "FeuD";
+        }
+        else {
+            var el = document.createElement('div');
+            el.className = "FeuE";
+        }
+            
+    
         // create the popup
         var popup = new mapboxgl.Popup({ offset: 25 })
             .setHTML('<h1> FEU </h1> </br> <p> Type : ' + Lfeu[i]['type'] +'</p><p>Intensity : '+ Lfeu[i]['intensity'] +'</p><p>Range : '+ Lfeu[i]['range']+'</p>' );
@@ -43,7 +72,7 @@ async function afficheFeu(){
 //marker.togglePopup(); // toggle popup open or closed
 //[{"id":59,"type":"B_Gasoline","intensity":50.0,"range":50.0,"lon":4.808583763718545,"lat":45.793118996773316},{"id":57,"type":"C_Flammable_Gases","intensity":50.0,"range":50.0,"lon":4.8260937761478795,"lat":45.732333858926715}]
 //TEST---------------------------------------------------
-function EssaiFiltre(){
+function EssaiFiltre(){ 
     var feuTest = [{"id":59,"type":"B_Gasoline","intensity":50.0,"range":50.0,"lon":4.808583763718545,"lat":45.793118996773316},{"id":57,"type":"C_Flammable_Gases","intensity":50.0,"range":50.0,"lon":4.8260937761478795,"lat":45.732333858926715}];
     
     for (i=0;i<feuTest.length;i++){
@@ -83,10 +112,7 @@ function Affichageform(){
     }
 }
 
-async function TriFeu(){
-
-    var Lfeu = await RecupFeu();
-
+function TriFeu(Lfeu){
     //TRI PAR TYPE
     var TypeA = [];var TypeB_G = [];var TypeB_A = [];var TypeB_P = [];var TypeC = [];var TypeD = [];var TypeE = [];
     for (i=0;i<Lfeu.length;i++){ 
@@ -112,7 +138,8 @@ async function TriFeu(){
             TypeE.push(Lfeu[i]["id"]);   
     }
 
-    var LTypeTotal = [];
+    var LTypeTotal = [TypeA,TypeB_G,TypeB_A,TypeB_P,TypeC,TypeD,TypeE];
+    return LTypeTotal;
     /*
     console.log(Lfeu);console.log("TypeB_G"+TypeB_G);console.log("TypeB_A"+TypeB_A);console.log("TypeB_P"+TypeB_P);console.log("TypeC"+TypeC);console.log("TypeD"+TypeD);console.log("TypeE"+TypeE);
     */
