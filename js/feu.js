@@ -48,35 +48,6 @@ async function afficheFeu(){
     }
 }
 
-//marker.togglePopup(); // toggle popup open or closed
-//[{"id":59,"type":"B_Gasoline","intensity":50.0,"range":50.0,"lon":4.808583763718545,"lat":45.793118996773316},{"id":57,"type":"C_Flammable_Gases","intensity":50.0,"range":50.0,"lon":4.8260937761478795,"lat":45.732333858926715}]
-//TEST---------------------------------------------------
-function EssaiFiltre(){ 
-    var feuTest = [{"id":59,"type":"B_Gasoline","intensity":50.0,"range":50.0,"lon":4.808583763718545,"lat":45.793118996773316},{"id":57,"type":"C_Flammable_Gases","intensity":50.0,"range":50.0,"lon":4.8260937761478795,"lat":45.732333858926715}];
-    
-    for (i=0;i<feuTest.length;i++){
-        var el = document.createElement('div');
-        el.className = "FEUTEST";
-   
-        // create the popup
-        var popup = new mapboxgl.Popup({ offset: 25 })
-            .setHTML('<h1> FEUTEST </h1> </br> <p> Type : ' + feuTest[i]['type'] +'</p><p>Intensity : '+ feuTest[i]['intensity'] +'</p><p>Range : '+ feuTest[i]['range']+'</p>' );
-        
-        new mapboxgl.Marker(el)
-                .setLngLat([feuTest[i]["lon"],feuTest[i]["lat"]])
-                .setPopup(popup)
-                .addTo(map);
-
-    }  
-}
-
-function EssaiDisp(){ 
-    els = document.getElementsByClassName("FEUTEST");
-    console.log(els);
-    for (i=0; i<els.length; i++) { 
-        els[i].style.display = "none";
-    }
-}
 //--------------------------------------------------------
 async function LienTypeIntensite (){
     var LGrandFeu = await TriIntensite();
