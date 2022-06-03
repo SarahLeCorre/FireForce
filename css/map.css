@@ -10,9 +10,66 @@ text-align: center;
 font-family: 'Open Sans', sans-serif;
 }*/
 
+/*FeuA, FeuB_G, FeuB_A, FeuB_P, FeuC, FeuD, FeuE*/
 
-.Feu {
-    background-image: url("../img/Feu.jpg");
+.FeuA {
+    background-image: url("../img/FeuRouge.jfif");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+}
+
+.FeuB_G {
+    background-image: url("../img/FeuBleu.jfif");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+}
+
+.FeuB_A {
+    background-image: url("../img/FeuJaune.jfif");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+}
+.FeuB_P {
+    background-image: url("../img/FeuNoir.jfif");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+}
+.FeuC {
+    background-image: url("../img/FeuRainbow.jfif");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+}
+.FeuD {
+    background-image: url("../img/FeuVert.jfif");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+}
+.FeuE {
+    background-image: url("../img/FeuViolet.jfif");
     background-size: cover;
     width: 20px;
     height: 20px;
@@ -22,10 +79,8 @@ font-family: 'Open Sans', sans-serif;
 }
 
 
-
-
 .FEUTEST {
-    background-image: url("../img/téléchargement.jfif");
+    background-image: url("../img/Feu.jpg");
     background-size: cover;
     width: 20px;
     height: 20px;
