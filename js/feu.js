@@ -24,6 +24,7 @@ async function afficheFeu(){
     var Lfeu = await RecupFeu();
     var LTypeTot = TriFeu(Lfeu);
 
+    console.log(Lfeu.length);
     for (i=0;i<Lfeu.length;i++){
         if (LTypeTot[0].includes(Lfeu[i]['id'])){
             var el = document.createElement('div');
