@@ -34,22 +34,32 @@
         <button class="BoutonFeu" onclick="TriFeu ()" type="button">Tri Feu</button>
         <button class="BoutonFeu" onclick="EssaiFiltre ()" type="button"> EssaiFiltre</button>
         <button class="BoutonFeu" onclick="EssaiDisp()" type="button">EssaiDisp</button>
-        
+
         <form class="FormulaireTri">
             <input type="checkbox" id="FeuA">
             <label for="FeuA"> Feu A, feu sec</label></br>
+
             <input type="checkbox" id="FeuB_G">
-            <label for="FeuB_G"> FeuB_G, </label></br>
+            <label for="FeuB_G"> FeuB_G, feu gras, Gasoline</label></br>
+
             <input type="checkbox" id="FeuB_A">
-            <label for="FeuB_A"> FeuB_A</label></br>
+            <label for="FeuB_A"> FeuB_A, feu gras, Alcohol</label></br>
+
             <input type="checkbox" id="FeuB_P">
-            <label for="FeuB_P"> FeuB_P</label></br>
+            <label for="FeuB_P"> FeuB_P, feu gras, Plastics</label></br>
+
             <input type="checkbox" id="FeuC">
-            <label for="FeuC"> FeuC</label></br>
+            <label for="FeuC"> FeuC, feu de gaz</label></br>
+
             <input type="checkbox" id="FeuD">
-            <label for="FeuD"> FeuD</label></br>
+            <label for="FeuD"> FeuD, feu de métals</label></br>
+
             <input type="checkbox" id="FeuE">
-            <label for="FeuE"> FeuE</label></br>
+            <label for="FeuE"> FeuE, feu électrique</label></br>
+
+            <input type="range" id="intensite" name="Intensity" min="0" max="100">
+            <label for="intensite">Intensité</label>
+
             <button class="Submit" onclick="Affichageform()" type="button">Submit</button>
         </form>
         
