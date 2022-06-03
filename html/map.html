@@ -38,32 +38,35 @@
             <label id="titreForm">Formulaire de Tri des Feux</label>
             </br>
 
-            <input type="checkbox" id="FeuA">
+            <input type="checkbox" id="FeuA" checked>
             <label for="FeuA"> Feu A, feu sec</label></br>
 
-            <input type="checkbox" id="FeuB_G">
+            <input type="checkbox" id="FeuB_G"checked>
             <label for="FeuB_G"> FeuB_G, feu gras, Gasoline</label></br>
 
-            <input type="checkbox" id="FeuB_A">
+            <input type="checkbox" id="FeuB_A"checked>
             <label for="FeuB_A"> FeuB_A, feu gras, Alcohol</label></br>
 
-            <input type="checkbox" id="FeuB_P">
+            <input type="checkbox" id="FeuB_P"checked>
             <label for="FeuB_P"> FeuB_P, feu gras, Plastics</label></br>
 
-            <input type="checkbox" id="FeuC">
+            <input type="checkbox" id="FeuC"checked>
             <label for="FeuC"> FeuC, feu de gaz</label></br>
 
-            <input type="checkbox" id="FeuD">
+            <input type="checkbox" id="FeuD"checked>
             <label for="FeuD"> FeuD, feu de métals</label></br>
 
-            <input type="checkbox" id="FeuE">
+            <input type="checkbox" id="FeuE"checked>
             <label for="FeuE"> FeuE, feu électrique</label></br>
 
             <label for="intensite">Tous les feux supérieurs à l'intensité :</label>
-            <input type="range" id="intensite" name="Intensity" min="0" max="100">
+
+            <input type="number" id = "intensite" name="Intensity" value="0" min="10" max="100">
 
             <br>
-            <button class="Submit" onclick="Affichageform()" type="button">Submit</button>
+            <!-- -->
+                <button class="Submit" onclick="Affichageform()" type="button">SubmitMarche</button>
+                <button class="Submit" onclick="DisplayAvecIntensity()" type="button">SubmitIntensity</button>
         </form>
         
     </div> 

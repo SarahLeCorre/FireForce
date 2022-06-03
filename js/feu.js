@@ -29,6 +29,7 @@ async function afficheFeu(){
 
     for (i=0;i<Lfeu.length;i++){
         if (LTypeTot[0].includes(Lfeu[i]['id'])){
+            var el = document.createElement('div');
             el.className = "FireA";
         }
         else if (LTypeTot[1].includes(Lfeu[i]['id'])){
@@ -71,7 +72,7 @@ async function afficheFeu(){
 
 //-----------------------------------------------------------------------------------------------------------------------
 //Déclanché par le bouton Submit du Formulaire et prend en compte les choix du form à mettre sur la map
-/*
+
 async function Affichageform(){
     
     var Fires = ["FireA","FireB_G","FireB_A","FireB_P","FireC","FireD","FireE"];
@@ -87,29 +88,34 @@ async function Affichageform(){
             }
 
         }
-    }       
-}*/
+    } 
+}
 
-async function Affichageform(){
+async function DisplayAvecIntensity(){
+
+    console.log("Lance Submit");
 
     var Lfeu = await RecupFeu();
     var I = document.getElementById("intensite").value;
 
     var Fires = ["FireA","FireB_G","FireB_A","FireB_P","FireC","FireD","FireE"];
     var Feux = ["FeuA","FeuB_G","FeuB_A","FeuB_P","FeuC","FeuD","FeuE"];
-    for (k=0; k<Fires.length;k++){
-        el = document.getElementsByClassName(Fires[k]);     
-        for (i=0; i<el.length; i++) {
-            if (document.getElementById(Feux[k]).checked == true){ 
-                for (i=0;i<Lfeu.length;i++){
-                    if (Lfeu[i]["intensity"]>=I){
+    for (i=0;i<Lfeu.length;i++){
+        for (k=0; k<Fires.length;k++) {
+            el = document.getElementsByClassName(Fires[k]);   
+            console.log(el[i]);
+            for (i=0; i<el.length; i++){
+                if (document.getElementById(Feux[k]).checked == true){
+                    if ( Lfeu[i]["intensity"]>=I){ 
+                        console.log("pb display");
                         el[i].style.display = "block";
                     }
                     else{
+                        console.log("pb none");
                         el[i].style.display="none";
                     }
-                }  
-            }
+                }
+            }  
         }
     }       
 }
@@ -143,7 +149,4 @@ function TriFeu(Lfeu){
 
     var LTypeTotal = [TypeA,TypeB_G,TypeB_A,TypeB_P,TypeC,TypeD,TypeE];
     return LTypeTotal;
-    /*
-    console.log(Lfeu);console.log("TypeB_G"+TypeB_G);console.log("TypeB_A"+TypeB_A);console.log("TypeB_P"+TypeB_P);console.log("TypeC"+TypeC);console.log("TypeD"+TypeD);console.log("TypeE"+TypeE);
-    */
 }
