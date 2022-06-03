@@ -39,3 +39,9 @@ async function SuppressionVehicules() {
     console.log(responseText); // logs 'OK'
 }
 
+
+
+async function addVehicle(){
+
+    
+}
