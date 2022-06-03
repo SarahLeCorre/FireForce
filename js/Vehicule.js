@@ -50,7 +50,7 @@ async function RecupVehicle() {
                             });                //Doit renvoyer la liste des id de nos vehicules       
     const responseText = await response.text();   //.text();
     var LVehicle = JSON.parse(responseText);
-    console.log(LVehicle);
+    //console.log(LVehicle);
     return LVehicle; //liste des id de nos vehicules
 }
 
@@ -73,11 +73,11 @@ async function afficheVehicle(){
             method: 'GET',     
             }); 
         
-            console.log('tableau',i,response[i]);
+            //console.log('tableau',i,response[i]);
             
             responseText[i] = await response[i].text();   //.text();
             
-            console.log('TEXT',i,responseText[i]);
+            //console.log('TEXT',i,responseText[i]);
         
         }
     //console.log('responsetext',response);
@@ -101,7 +101,7 @@ async function afficheVehicle(){
                     .setPopup(popup)
                     .addTo(map);
         
-            console.log('i:',i);
+            //console.log('i:',i);
             // console.log(LVehicle);
             //console.log('responsetext',responseText[i]);
 
