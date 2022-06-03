@@ -2,6 +2,8 @@ package com.sp.model;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,8 +20,9 @@ public class Facility {
 		private String name;
 		private int maxVehicleSpace;
 		private int peopleCapacity;
-		
+		@ElementCollection
 		private Set<Integer> vehicleIdSet;
+		@ElementCollection
 		private  Set<Integer> peopleIdSet;
 		
 		private String teamUuid;

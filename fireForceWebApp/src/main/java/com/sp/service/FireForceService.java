@@ -3,7 +3,12 @@ package com.sp.service;
 import java.util.Optional;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
+
+import org.apache.tomcat.util.json.JSONParser;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -238,5 +243,52 @@ public class FireForceService {
 
 		return(result);
 	}
+	
+	public ArrayList<Integer> idVehicle() {
+		String caserne = new String();
+		ArrayList <Integer> idVehiclesFinal = new ArrayList<Integer>();
+		caserne=this.getFacility("186");
+		
+		JSONObject caserneJson = new JSONObject(caserne);
+		JSONArray idVehicles = new JSONArray();
+		
+		idVehicles=caserneJson.getJSONArray("vehicleIdSet");
+		
+		for(int i=0;i<idVehicles.length();i++) {
+			idVehiclesFinal.add(idVehicles.getInt(i));
+		}
+		return(idVehiclesFinal);	
+	}
+	
+	public ArrayList posFire() {
+		String fire = new String();
+		fire=this.getAllFire();
+		fire=fire.substring(1,fire.length()-1);
+		String[] fireSplit=fire.split("},");
+		for(int i=0;i<fireSplit.length;i++) {
+			if(i!=fireSplit.length-1) {
+				fireSplit[i] += "}";
+			}
+			
+		}
+		ArrayList<Float> longitude = new ArrayList<Float>();
+		ArrayList<Float> latitude = new ArrayList<Float>();
+		
+		for(int i=0;i<fireSplit.length;i++) {
+			JSONObject fireJson = new JSONObject(fireSplit[i]);
+			Float lat=fireJson.getFloat("lat");
+			Float lon=fireJson.getFloat("lon");
+			
+			longitude.add(lon);
+			latitude.add(lat);
+			
+		}
+		ArrayList pos = new ArrayList();
+		pos.add(latitude);
+		pos.add(longitude);
+		return(pos);	
+	}
+	
+	
 	
 }
