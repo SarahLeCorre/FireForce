@@ -9,7 +9,6 @@ async function creationVehicule() {
         fuel : 100,
         crewMember : 0,
         facilityRefID : 186
-        //attack: document.querySelector("input[name='attack']").value
     }
 
     ;
@@ -38,4 +37,11 @@ async function SuppressionVehicules() {
     const responseText = await response.text();
 
     console.log(responseText); // logs 'OK'
+}
+
+
+
+async function addVehicle(){
+
+    
 }
