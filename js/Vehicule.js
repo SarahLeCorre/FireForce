@@ -40,8 +40,62 @@ async function SuppressionVehicules() {
 }
 
 
+//Permet de récupérer le json des vehicles sur l'api /vehicle
+async function RecupVehicle() {
+    const response = await fetch('http://vps.cpe-sn.fr:8081/vehicle', {
+                            method: 'GET',     
+                            });                       
+    const responseText = await response.text();   //.text();
+    var LVehicle = JSON.parse(responseText);
+    //console.log(LVehicle);
+    return LVehicle;
+}
 
-async function addVehicle(){
 
+
+
+//Permet d'afficher les vehicles sur la carte
+
+async function afficheVehicle(){ 
     
+    var LVehicle = await RecupVehicle();
+    //var LTypeTot = TriFeu(Lfeu);
+
+    for (i=0;i<Lfeu.length;i++){
+        if (Lfeu[i]['id']==LTypeTot[0]){
+            var el = document.createElement('div');
+            el.className = "CAR";
+        }
+        else if (Lfeu[i]['id']==LTypeTot[1]){
+            var el = document.createElement('div');
+            el.className = "FIRE_ENGINE";
+        }
+        else if(Lfeu[i]['id']==LTypeTot[2]){
+            var el = document.createElement('div');
+            el.className = "PUMPER_TRUCK";
+        }
+        else if(Lfeu[i]['id']==LTypeTot[4]){
+            var el = document.createElement('div');
+            el.className = "WATER_TENDER";
+        }
+        else if (Lfeu[i]['id']==LTypeTot[5]){
+            var el = document.createElement('div');
+            el.className = "TURNTABLE_LADDER_TRUCK";
+        }
+        else  (Lfeu[i]['id']==LTypeTot[6]){
+            var el = document.createElement('div');
+            el.className = "TRUCK";
+        }
+            
+    
+        // create the popup
+        var popup = new mapboxgl.Popup({ offset: 25 })
+            .setHTML('<h1> FEU </h1> </br> <p> Type : ' + Lfeu[i]['type'] +'</p><p>Intensity : '+ Lfeu[i]['intensity'] +'</p><p>Range : '+ Lfeu[i]['range']+'</p>' );
+
+        
+        new mapboxgl.Marker(el)
+                .setLngLat([Lfeu[i]["lon"],Lfeu[i]["lat"]])
+                .setPopup(popup)
+                .addTo(map);
+    } 
 }
