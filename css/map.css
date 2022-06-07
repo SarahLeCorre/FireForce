@@ -1,4 +1,3 @@
-
 body {
     position: relative;
 }
@@ -13,7 +12,6 @@ body::after {
     position: relative;
     top: 0;
     width: 100%;
-    height: 10%;
 }
 
 #footer{
@@ -39,6 +37,7 @@ h1
   background-image:url(../img/titre.jpg);  
 }
 
+/*-------------------------------------------------------------------------------------------------------------*/
 
 .wrapper {
     display: grid;
@@ -56,7 +55,6 @@ h1
     width : 1000px; 
     height : 500px;
     grid-area: a;
-    margin-bottom: 1%;
 }
 
 #FormFeu{
@@ -67,32 +65,79 @@ h1
     grid-area: c;
 }
 
+/*-----------------------------------------------------------------------------------------------------------------------*/
 
+.FormulaireTri {
+    background-color: rgb(146, 13, 19);
+    border: 2px solid rgb(227, 153, 75);
+    color :aliceblue;
+}
+.formVehicle{
+    background-color: rgb(146, 13, 19);
+    border: 2px solid rgb(227, 153, 75);
+    color :aliceblue;
+}
+
+
+/*-----------------------------------------------------------------------------------------------------------------------*/
+
+.titreForm {
+    text-align: center;
+    font: 1rem 'Fira Sans', sans-serif;
+    font-weight:bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
 label {
     font: 80% 'Fira Sans', sans-serif;
     margin-bottom: 1%;
 }
 
-.titreFormFeu {
-    text-align: center;
-    font: 1rem 'Fira Sans', sans-serif;
-    font-weight:bold;
-    margin-top: 10px;
-}
-
 .checkboxFeu {
     margin-left: 10px;
 }
-
-.FormulaireTri {
-    background-color: rgb(255, 175, 179);
-    border: 2px solid rgb(227, 153, 75);
+.checkboxFeu:checked{
+    color:grey;
+}
+.wrapper2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(3px, auto);
+    grid-template-areas:
+    "d"
+    "e"
+    "f";
+    align-items: start;
 }
 
+.select1{
+    grid-area: d;
+    margin-left: 10px;
+}
+.select2{
+    grid-area: e;
+    margin-left: 10px;
+}
+.select3{
+    grid-area: f;
+}
+
+
+/*----------------------------------------------------------------------------------------*/
+.range{
+    margin-top: 3%;
+    margin-bottom: 3%;    
+}
+.rangeTitre{
+    margin-left: 10px;
+}
+/*BOUTONS -------------------------------------------------------------------------------*/
+/*BOUTONS DU FORM DES FEUX*/
 .maj {
     transition-duration: 0.4s;
-    background-color: rgb(255, 139, 187);
+    background-color: rgb(250, 179, 179);
     border: 2px solid rgb(14, 13, 13);
     margin-bottom: 10px;
     position: relative;
@@ -102,17 +147,25 @@ label {
 }
   
 .maj:hover {
-    background-color: rgba(196, 79, 85, 0.629);
+    background-color: rgb(235, 37, 47);
     color: white;
 }
 
-.range{
-    margin-top: 3%;
-    margin-bottom: 3%;    
+/*BOUTONS DU FORM DES VEHICULES*/
+.Submit {
+    transition-duration: 0.4s;
+    background-color: rgb(250, 179, 179);
+    border: 2px solid rgb(14, 13, 13);
+    position: relative;
+    padding: 2%;
+    left: 130px;
+    margin-bottom: 10px;
+    margin-top: 2px;
 }
-
-.rangeTitre{
-    margin-left: 10px;
+  
+.Submit:hover {
+    background-color: rgb(235, 37, 47);
+    color: white;
 }
 
 /*Eléments singuliers Feux, Voitures, Casernes ------------------------------------------------------------------------------*/
