@@ -101,13 +101,17 @@ async function afficheVehicle(){
 
             LVehicle = JSON.parse(responseText[i]);
 
+            //console.log("liste",LVehicle);
 
             var el = document.createElement('div');
             if (LVehicle['type']=='CAR'){
                 el.className = "CAR";
+                console.log('ouuuuuuuuuuuuuuuu')
             }
             else if(LVehicle['type']=='FIRE_ENGINE'){
                 el.className = "FIRE_ENGINE";
+                
+                console.log('AAAAAAAAAAAAAAAAA')
             }
             else if(LVehicle['type']=='PUMPER_TRUCK'){
                 el.className = "PUMPER_TRUCK";
