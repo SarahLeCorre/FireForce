@@ -98,8 +98,8 @@ async function afficheVehicle(){
             else if(LVehicle['type']=='PUMPER_TRUCK'){
                 el.className = "PUMPER_TRUCK";
             }
-            else if(LVehicle['type']=='WATER_TENDER'){
-                el.className = "WATER_TENDER";
+            else if(LVehicle['type']=='WATER_TENDERS'){
+                el.className = "WATER_TENDERS";
             }
             
             else if(LVehicle['type']=='TURNTABLE_LADDER_TRUCK'){
