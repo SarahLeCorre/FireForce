@@ -2,11 +2,13 @@ window.onload = afficheVehicle ();
 
 
 async function addVehicle() {
-
+    var texte;
+    texte = document.getElementById("type").options[document.getElementById('type').selectedIndex].text;
+    
     const object = {
         lon : 4.808,
         lat : 45.793,
-        type : "FIRE_ENGINE",
+        type : texte,
         liquidType : "ALL",
         liquidQuantity : 30,
         fuel : 100,
