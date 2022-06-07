@@ -2,17 +2,23 @@ window.onload = afficheVehicle ();
 
 
 async function addVehicle() {
-    var texte;
-    texte = document.getElementById("type").options[document.getElementById('type').selectedIndex].text;
+    var choixType;
+    choixType = document.getElementById("type").options[document.getElementById('type').selectedIndex].text;
     
+    var choixLiquide;
+    choixLiquide = document.getElementById("liquideType").options[document.getElementById('liquideType').selectedIndex].text;
+    
+    var choixLiquide;
+    choixCrew = document.getElementById("crewMembers").options[document.getElementById('crewMembers').selectedIndex].text;
+  
     const object = {
         lon : 4.808,
         lat : 45.793,
-        type : texte,
-        liquidType : "ALL",
+        type : choixType,
+        liquidType : choixLiquide,
         liquidQuantity : 30,
         fuel : 100,
-        crewMember : 5,
+        crewMember : choixCrew,
         facilityRefID : 186
     }
 
