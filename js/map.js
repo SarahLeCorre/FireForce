@@ -48,13 +48,13 @@ map.on('load', function() {
     );
  
  
-    map.addLayer({
+    /*map.addLayer({
              'id': 'lyon_layer_name',
              'type': 'symbol',
              'source': 'lyon_point',
              'layout': {
                'text-field': ['get', 'name']
              }
-         });
+    });*/
  });
 
