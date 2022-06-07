@@ -5,12 +5,17 @@ async function addVehicle() {
     var choixType;
     choixType = document.getElementById("type").options[document.getElementById('type').selectedIndex].text;
     
+
     var choixLiquide;
     choixLiquide = document.getElementById("liquideType").options[document.getElementById('liquideType').selectedIndex].text;
     
+    console.log("type ",choixType); // logs 'OK'
+    console.log("liquide ", choixLiquide); // logs 'OK'
+   
     var choixLiquide;
-    choixCrew = document.getElementById("crewMembers").options[document.getElementById('crewMembers').selectedIndex].text;
-  
+    choixCrew = document.getElementById("crewMembers").value;
+    console.log("nombre ", choixCrew); // logs 'OK'
+    
     const object = {
         lon : 4.808,
         lat : 45.793,
@@ -18,7 +23,7 @@ async function addVehicle() {
         liquidType : choixLiquide,
         liquidQuantity : 30,
         fuel : 100,
-        crewMember : choixCrew,
+        crewMember : 8,
         facilityRefID : 186
     }
 
