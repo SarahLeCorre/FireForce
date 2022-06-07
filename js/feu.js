@@ -18,7 +18,9 @@ var map = new mapboxgl.Map({
 //-----------------------------------------------------------------------------------------------------------------------
 //Permet de récupérer le json des feux sur l'api /fire
 async function RecupFeu() {
-    const response = await fetch('http://vps.cpe-sn.fr:8081/fire', {
+    var lien = "http://localhost:8081/getAllFire";
+    // var lien = 'http://vps.cpe-sn.fr:8081/fire';
+    const response = await fetch(lien, {
                             method: 'GET',     
                             });                       
     const responseText = await response.text();   //.text();
