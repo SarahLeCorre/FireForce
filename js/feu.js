@@ -95,13 +95,26 @@ async function MAJ(){
                 el[i].style.display = "none";
         }
     }
+    
 
     //1er affichage avec la nouvelle liste de feu
     
     var Lfeu = await RecupFeu();
-    //afficheFeu(Lfeu);
-    //Affichageform();
+    afficheFeu(Lfeu);
     console.log(Lfeu);
+}
+
+async function TRI (){
+    //Permet de supprimer tous les feux
+    var Fires = ["A","B_Gasoline","B_Alcohol","B_Plastics","C_Flammable_Gases","D_Metals","E_Electric"];
+    for (k=0; k<Fires.length;k++){
+        el = document.getElementsByClassName(Fires[k]);     
+        for (i=0; i<el.length; i++) { 
+                el[i].style.display = "none";
+        }
+    }
+    
+    var Lfeu = await RecupFeu();
     DisplayAvecIntensity(Lfeu);
 }
 

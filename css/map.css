@@ -1,17 +1,30 @@
 #map { width : 1000px; height : 600px; }
 
-/*
-.mapboxgl-popup {
-    max-width: 200px;
-  }
-  
-.mapboxgl-popup-content {
-text-align: center;
-font-family: 'Open Sans', sans-serif;
-}*/
 
-/*FeuA, FeuB_G, FeuB_A, FeuB_P, FeuC, FeuD, FeuE*/
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(3px, auto);
+    grid-template-areas:
+    "a b "
+    "a c";
+    align-items: start;
+}
 
+#map{
+    grid-area: a;
+}
+
+#FormFeu{
+    grid-area: b;
+}
+
+#FormVehicule{
+    grid-area: c;
+}
+
+/*Eléments singuliers Feux, Voitures, Casernes*/
 .A {
     background-image: url("../img/FeuRouge.jfif");
     background-size: cover;
@@ -78,20 +91,6 @@ font-family: 'Open Sans', sans-serif;
     display: block;
 }
 
-
-.FEUTEST {
-    background-image: url("../img/Feu.jpg");
-    background-size: cover;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: block;
-}
-
-
-
-
 .CAR {
     background-image: url("../img/CAR.jfif");
     background-size: cover;
@@ -152,8 +151,6 @@ font-family: 'Open Sans', sans-serif;
     cursor: pointer;
     display: block;
 }
-
-
 
 .caserne {
     background-image: url('../img/caserne.jpg');
