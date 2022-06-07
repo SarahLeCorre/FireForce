@@ -47,8 +47,7 @@ h1
     grid-auto-rows: minmax(3px, auto);
     grid-template-areas:
     "a b"
-    "a c"
-    "a d";
+    "a c";
     align-items: start;
 }
 
@@ -68,9 +67,6 @@ h1
     grid-area: c;
 }
 
-#FormVehicule2{
-    grid-area: d;
-}
 
 
 label {
