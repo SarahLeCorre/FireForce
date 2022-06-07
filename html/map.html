@@ -25,72 +25,66 @@
     </header> 
 
     <h1> Fire Force</h1>
-    <div id="bouton">
-        <!--BUG DES PROF NE PAS SUPPRIMER LES VEHICULES
-            <button class="BoutonVehicule" onclick="creationVehicule ()" type="button">Ajout Véhicule</button>
-            <button class="BoutonVehicule" onclick="SuppressionVehicules ()" type="button">Supprime tous les Véhicules</button>
-            <button class="BoutonFeu" onclick="TriFeu ()" type="button">Tri Feu</button>
-            <button class="BoutonFeu" onclick="EssaiFiltre ()" type="button"> EssaiFiltre</button>
-            <button class="BoutonFeu" onclick="EssaiDisp()" type="button">EssaiDisp</button>
-        -->
 
-        <form class="FormulaireTri">
-            <label id="titreForm">Formulaire de Tri des Feux</label>
-            </br>
+    <div class="wrapper">
 
-            <input type="checkbox" id="FeuA" checked>
-            <label for="FeuA"> Feu A, feu sec</label></br>
+        <div id="FormFeu">
+            <form class="FormulaireTri">
+                <label id="titreForm">Formulaire de Tri des Feux</label>
+                </br>
 
-            <input type="checkbox" id="FeuB_G"checked>
-            <label for="FeuB_G"> FeuB_G, feu gras, Gasoline</label></br>
+                <input type="checkbox" id="FeuA" checked>
+                <label for="FeuA"> Feu A, feu sec</label></br>
 
-            <input type="checkbox" id="FeuB_A"checked>
-            <label for="FeuB_A"> FeuB_A, feu gras, Alcohol</label></br>
+                <input type="checkbox" id="FeuB_G"checked>
+                <label for="FeuB_G"> FeuB_G, feu gras, Gasoline</label></br>
 
-            <input type="checkbox" id="FeuB_P"checked>
-            <label for="FeuB_P"> FeuB_P, feu gras, Plastics</label></br>
+                <input type="checkbox" id="FeuB_A"checked>
+                <label for="FeuB_A"> FeuB_A, feu gras, Alcohol</label></br>
 
-            <input type="checkbox" id="FeuC"checked>
-            <label for="FeuC"> FeuC, feu de gaz</label></br>
+                <input type="checkbox" id="FeuB_P"checked>
+                <label for="FeuB_P"> FeuB_P, feu gras, Plastics</label></br>
 
-            <input type="checkbox" id="FeuD"checked>
-            <label for="FeuD"> FeuD, feu de métals</label></br>
+                <input type="checkbox" id="FeuC"checked>
+                <label for="FeuC"> FeuC, feu de gaz</label></br>
 
-            <input type="checkbox" id="FeuE"checked>
-            <label for="FeuE"> FeuE, feu électrique</label></br>
+                <input type="checkbox" id="FeuD"checked>
+                <label for="FeuD"> FeuD, feu de métals</label></br>
 
-            <label for="intensite">Tous les feux supérieurs à l'intensité :</label>
+                <input type="checkbox" id="FeuE"checked>
+                <label for="FeuE"> FeuE, feu électrique</label></br>
 
-            <input type="number" id = "intensite" name="Intensity" value="0" step="1.5" min="0" max="100">
+                <label for="intensite">Tous les feux supérieurs à l'intensité :</label>
 
-            <br>
-            <!-- 
-                <button class="Submit" onclick="Affichageform()" type="button">TRI PAR TYPE</button>
-            -->    
-                <button class="Submit" onclick="MAJ()" type="button">Submit</button>
-        </form>
-        
-    </div> 
-    <div>
-        <form class="formVehicle" action="http://localhost:8081" method="GET" >
-            <p class="titreForm">Ajoutez un nouveau vehicule</p>
-            <select name="vehicle" size="6" multiple>
-                <option value="CAR"> Car</option>
-                <option value="FIRE_ENGINE"> Fire Engine</option>
-                <option value="PUMPER_TRUCK"> Pumper Truck</option>
-                <option value="WATER_TENDER"> Water Tender</option>
-                <option value="TURNTABLE_LADDER_TRUCK"> Turntable ladder truck</option>
-                <option value="TRUCK"> Truck</option>
-            </select>
-            <button class="Submit" type="button">Submit</button>
+                <input type="number" id = "intensite" name="Intensity" value="0" step="1.5" min="0" max="100">
+
+                <br>
+                <!-- -->  
+                    <button class="Submit" onclick="MAJ()" type="button">Mise à jour</button>
+                
+                    <button class="Submit" onclick="TRI()" type="button">Submit</button>
+            </form>
+            
+        </div> 
+        <div id="FormVehicule">
+            <form class="formVehicle" action="http://localhost:8081" method="GET" >
+                <p class="titreForm">Ajoutez un nouveau vehicule</p>
+                <select name="vehicle" size="6" multiple>
+                    <option value="CAR"> Car</option>
+                    <option value="FIRE_ENGINE"> Fire Engine</option>
+                    <option value="PUMPER_TRUCK"> Pumper Truck</option>
+                    <option value="WATER_TENDER"> Water Tender</option>
+                    <option value="TURNTABLE_LADDER_TRUCK"> Turntable ladder truck</option>
+                    <option value="TRUCK"> Truck</option>
+                </select>
+                <button class="Submit" type="button">Submit</button>
 
 
-        </form>
+            </form>
+        </div>
 
-
+        <div id="map"></div>
     </div>
-    <div id="map"></div>
-
     
 
 </body>
