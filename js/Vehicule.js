@@ -2,15 +2,28 @@ window.onload = afficheVehicle ();
 
 
 async function addVehicle() {
+    var choixType;
+    choixType = document.getElementById("type").options[document.getElementById('type').selectedIndex].text;
+    
 
+    var choixLiquide;
+    choixLiquide = document.getElementById("liquideType").options[document.getElementById('liquideType').selectedIndex].text;
+    
+    console.log("type ",choixType); // logs 'OK'
+    console.log("liquide ", choixLiquide); // logs 'OK'
+   
+    var choixLiquide;
+    choixCrew = document.getElementById("crewMembers").value;
+    console.log("nombre ", choixCrew); // logs 'OK'
+    
     const object = {
         lon : 4.808,
         lat : 45.793,
-        type : "FIRE_ENGINE",
-        liquidType : "ALL",
+        type : choixType,
+        liquidType : choixLiquide,
         liquidQuantity : 30,
         fuel : 100,
-        crewMember : 5,
+        crewMember : choixCrew,
         facilityRefID : 186
     }
 
@@ -21,6 +34,7 @@ async function addVehicle() {
                                 body: JSON.stringify(object),
                                 headers: {
                                      'Content-Type': 'application/json'
+                                     
                                     }
                                 });
     const responseText = await response.text();

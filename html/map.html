@@ -67,15 +67,33 @@
     <div id="FormVehicule1">
         <form class="formVehicle" action="http://localhost:8081" method="GET" >
             <p class="titreForm">Ajoutez un nouveau vehicule</p>
-            <select name="vehicle" >
-                <option value="CAR"> Car</option>
-                <option value="FIRE_ENGINE"> Fire Engine</option>
-                <option value="PUMPER_TRUCK"> Pumper Truck</option>
-                <option value="WATER_TENDER"> Water Tender</option>
-                <option value="TURNTABLE_LADDER_TRUCK"> Turntable ladder truck</option>
-                <option value="TRUCK"> Truck</option>
+
+            <select name="type" id="type" >
+                <option value="CAR"> CAR</option>
+                <option value="FIRE_ENGINE"> FIRE_ENGINE</option>
+                <option value="PUMPER_TRUCK"> PUMPER_TRUCK</option>
+                <option value="WATER_TENDERS">WATER_TENDERS</option>
+                <option value="TURNTABLE_LADDER_TRUCK">TURNTABLE_LADDER_TRUCK</option>
+                <option value="TRUCK">TRUCK</option>
             </select>
-            <button class="Submit" type="button" onclick="addVehicle">Submit</button>
+
+            <select name="liquideType" id="liquideType" >
+                <option value="ALL"> ALL</option>
+                <option value="WATER"> WATER</option>
+                <option value="POWDER"> POWDER</option>
+                <option value="CARBON_DIOXIDE"> CARBON_DIOXIDE</option>
+                <option value="WATER_WITH_ADDITIVES"> WATER_WITH_ADDITIVES</option>
+               </option>
+            </select>
+
+            <label for="crewMembers">Nombre de pompiers : </label>
+
+            <input type="number" id="crewMembers" name="crewMembers" min="0" max="100">
+
+            </select>
+
+
+            <button class="Submit" type="button" onclick="addVehicle()">Valider création</button>
 
                 <br>
                 <!-- -->  
@@ -84,22 +102,6 @@
                     <button class="Submit" onclick="TRI()" type="button">Submit</button>
             </form>
             
-    </div> 
-    <div id="FormVehicule2">
-            <form class="formVehicle" action="http://localhost:8081" method="GET" >
-                <p class="titreForm">Ajoutez un nouveau vehicule</p>
-                <select name="vehicle" size="6" multiple>
-                    <option value="CAR"> Car</option>
-                    <option value="FIRE_ENGINE"> Fire Engine</option>
-                    <option value="PUMPER_TRUCK"> Pumper Truck</option>
-                    <option value="WATER_TENDER"> Water Tender</option>
-                    <option value="TURNTABLE_LADDER_TRUCK"> Turntable ladder truck</option>
-                    <option value="TRUCK"> Truck</option>
-                </select>
-                <button class="Submit" type="button">Submit</button>
-
-
-            </form>
         </div>
 
         <div id="map"></div>
