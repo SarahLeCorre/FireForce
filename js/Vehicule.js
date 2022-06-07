@@ -13,22 +13,22 @@ async function addVehicle() {
     console.log("liquide ", choixLiquide); // logs 'OK'
    
     var choixLiquide;
-    choixCrew = document.getElementById("crewMembers").value;
+    choixCrew = parseInt(document.getElementById("crewMembers").value);
     console.log("nombre ", choixCrew); // logs 'OK'
     
     const object = {
-        lon : 4.808,
-        lat : 45.793,
-        type : choixType,
-        liquidType : choixLiquide,
-        liquidQuantity : 30,
-        fuel : 100,
-        crewMember : choixCrew,
-        facilityRefID : 186
+        "lon" : 4.808,
+        "lat" : 45.793,
+        "type" : choixType,
+        "liquidType": choixLiquide,
+        "liquidQuantity": 30,
+        "fuel" : 100,
+        "crewMember" : choixCrew,
+        "facilityRefID" : 186
     }
 
     ;
-
+    console.log(object);
     const response = await fetch('http://localhost:8081/addVehicle', {
                                 method: 'POST',     
                                 body: JSON.stringify(object),
