@@ -30,7 +30,7 @@
 
         <div id="FormFeu">
             <form class="FormulaireTri">
-                <p class = "titreFormFeu">Filtre de Tri des Feux</p>
+                <p class = "titreForm">Filtre de Tri des Feux</p>
                 </br>
 
                 <input type="checkbox" id="FeuA" class = "checkboxFeu" checked>
@@ -56,55 +56,54 @@
 
                 <label for="intensite" class="rangeTitre">Tous les feux supérieurs à l'intensité :</label>
                 <input type="number" id = "intensite" class="range" name="Intensity" value="0" step="1.5" min="0" max="100">
-            <br>
-            <!-- --> 
+                <br>
+                <!-- --> 
                 <button class="maj" onclick="MAJ()" type="button">MAJ</button>
                
                 <button class="maj" onclick="TRI()" type="button">Submit</button>
-        </form>
-        
-    </div> 
-    <div id="FormVehicule1">
-        <form class="formVehicle" action="http://localhost:8081" method="GET" >
-            <p class="titreForm">Ajoutez un nouveau vehicule</p>
-
-            <select name="type" id="type" >
-                <option value="CAR"> CAR</option>
-                <option value="FIRE_ENGINE"> FIRE_ENGINE</option>
-                <option value="PUMPER_TRUCK"> PUMPER_TRUCK</option>
-                <option value="WATER_TENDERS">WATER_TENDERS</option>
-                <option value="TURNTABLE_LADDER_TRUCK">TURNTABLE_LADDER_TRUCK</option>
-                <option value="TRUCK">TRUCK</option>
-            </select>
-
-            <select name="liquideType" id="liquideType" >
-                <option value="ALL"> ALL</option>
-                <option value="WATER"> WATER</option>
-                <option value="POWDER"> POWDER</option>
-                <option value="CARBON_DIOXIDE"> CARBON_DIOXIDE</option>
-                <option value="WATER_WITH_ADDITIVES"> WATER_WITH_ADDITIVES</option>
-               </option>
-            </select>
-
-            <label for="crewMembers">Nombre de pompiers : </label>
-
-            <input type="number" id="crewMembers" name="crewMembers" min="0" max="100">
-
-            </select>
-
-
-            <button class="Submit" type="button" onclick="addVehicle()">Valider création</button>
-
-                <br>
-                <!-- -->  
-                    <button class="Submit" onclick="MAJ()" type="button">Mise à jour</button>
-                
-                    <button class="Submit" onclick="TRI()" type="button">Submit</button>
             </form>
-            
+        
+        </div> 
+        <div id="FormVehicule1">
+            <form class="formVehicle" action="http://localhost:8081" method="GET" >
+                <p class="titreForm">Ajoutez un nouveau vehicule</p>
+
+                <div class="wrapper2">
+                    <div class="select1">
+                        <select name="type" id="type" >
+                            <option value="CAR"> CAR</option>
+                            <option value="FIRE_ENGINE"> FIRE_ENGINE</option>
+                            <option value="PUMPER_TRUCK"> PUMPER_TRUCK</option>
+                            <option value="WATER_TENDERS">WATER_TENDERS</option>
+                            <option value="TURNTABLE_LADDER_TRUCK">TURNTABLE_LADDER_TRUCK</option>
+                            <option value="TRUCK">TRUCK</option>
+                        </select>
+                    </div>
+                        
+                    <div class="select2">
+                        <select name="liquideType" id="liquideType" >
+                            <option value="ALL"> ALL</option>
+                            <option value="WATER"> WATER</option>
+                            <option value="POWDER"> POWDER</option>
+                            <option value="CARBON_DIOXIDE"> CARBON_DIOXIDE</option>
+                            <option value="WATER_WITH_ADDITIVES"> WATER_WITH_ADDITIVES</option>
+                        </select>
+                    </div>
+                        
+                    <div class = "select3">
+                        <label for="crewMembers" class="rangeTitre">Nombre de pompiers : </label>
+                        <input type="number" id="crewMembers" name="crewMembers" class="range" min="0" max="100" placeholder="0">
+
+
+                        <button class="Submit" type="button" onclick="addVehicle()">Valider création</button>
+                    </div>
+        
+                </div>
+            </form>      
         </div>
 
         <div id="map"></div>
+
     </div>
     
 
