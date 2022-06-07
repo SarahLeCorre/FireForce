@@ -23,7 +23,7 @@ async function addVehicle() {
         liquidType : choixLiquide,
         liquidQuantity : 30,
         fuel : 100,
-        crewMember : 8,
+        crewMember : choixCrew,
         facilityRefID : 186
     }
 
@@ -34,6 +34,7 @@ async function addVehicle() {
                                 body: JSON.stringify(object),
                                 headers: {
                                      'Content-Type': 'application/json'
+                                     
                                     }
                                 });
     const responseText = await response.text();
