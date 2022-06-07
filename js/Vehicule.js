@@ -2,7 +2,7 @@ window.onload = afficheVehicle ();
 
 
 async function addVehicle() {
-    var choixType;
+   var choixType;
     choixType = document.getElementById("type").options[document.getElementById('type').selectedIndex].text;
     
 
