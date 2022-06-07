@@ -1,12 +1,12 @@
 window.onload = afficheVehicle ();
 
 
-async function creationVehicule() {
+async function addVehicle() {
 
     const object = {
-        lon : 4.808583763718546,
-        lat : 45.793118996773314,
-        type : "",
+        lon : 4.808,
+        lat : 45.793,
+        type : "FIRE_ENGINE",
         liquidType : "ALL",
         liquidQuantity : 30,
         fuel : 100,
@@ -16,7 +16,7 @@ async function creationVehicule() {
 
     ;
 
-    const response = await fetch('http://vps.cpe-sn.fr:8081/vehicle/10eec12c-ac37-4479-b4a8-707559a6ee62', {
+    const response = await fetch('http://localhost:8081/addVehicle', {
                                 method: 'POST',     
                                 body: JSON.stringify(object),
                                 headers: {
@@ -98,8 +98,8 @@ async function afficheVehicle(){
             else if(LVehicle['type']=='PUMPER_TRUCK'){
                 el.className = "PUMPER_TRUCK";
             }
-            else if(LVehicle['type']=='WATER_TENDER'){
-                el.className = "WATER_TENDER";
+            else if(LVehicle['type']=='WATER_TENDERS'){
+                el.className = "WATER_TENDERS";
             }
             
             else if(LVehicle['type']=='TURNTABLE_LADDER_TRUCK'){

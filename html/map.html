@@ -57,6 +57,26 @@
                 <label for="intensite">Tous les feux supérieurs à l'intensité :</label>
 
                 <input type="number" id = "intensite" name="Intensity" value="0" step="1.5" min="0" max="100">
+            <br>
+            <!-- 
+                <button class="Submit" onclick="Affichageform()" type="button">TRI PAR TYPE</button>
+            -->    
+                <button class="Submit" onclick="MAJ()" type="button">Submit</button>
+        </form>
+        
+    </div> 
+    <div>
+        <form class="formVehicle" action="http://localhost:8081" method="GET" >
+            <p class="titreForm">Ajoutez un nouveau vehicule</p>
+            <select name="vehicle" >
+                <option value="CAR"> Car</option>
+                <option value="FIRE_ENGINE"> Fire Engine</option>
+                <option value="PUMPER_TRUCK"> Pumper Truck</option>
+                <option value="WATER_TENDER"> Water Tender</option>
+                <option value="TURNTABLE_LADDER_TRUCK"> Turntable ladder truck</option>
+                <option value="TRUCK"> Truck</option>
+            </select>
+            <button class="Submit" type="button" onclick="addVehicle">Submit</button>
 
                 <br>
                 <!-- -->  

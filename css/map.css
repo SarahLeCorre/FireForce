@@ -121,6 +121,17 @@
     display: block;
 }
 
+.WATER_TENDERS {
+    background-image: url("../img/WATER_TENDER.jpg");
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+}
+
+
 .PUMPER_TRUCK {
     background-image: url("../img/PUMPER_TRUCK.jpg");
     background-size: cover;
