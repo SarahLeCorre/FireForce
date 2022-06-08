@@ -97,7 +97,6 @@ async function MAJ(){
                 el[i].style.display = "none";
         }
     }
-    
 
     //1er affichage avec la nouvelle liste de feu
     

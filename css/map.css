@@ -21,6 +21,31 @@ body::after {
     height: 30px;
 }
 
+/*PAGE INFORMATION ----------------------------------------------------------------------------------------------*/
+.bodyInfo {
+    background-color: rgb(254, 160, 96);
+}
+.lienInfo {
+    text-align: center;
+    color :azure;
+    -moz-box-shadow: 2px 2px 6px rgb(19, 17, 17);  
+    -webkit-box-shadow: 2px 2px 6px rgb(28, 24, 24);  
+    box-shadow:2px 2px 6px rgb(17, 15, 15);  
+    display:block;
+    margin:16px;
+    background-color: rgb(117, 21, 21);
+}
+h2 {
+    text-align: center;
+    font-weight:bold;
+    margin-bottom: 5%;
+}
+.textInfo {
+    margin-bottom: 1%;
+    text-align: center;
+    font-style: italic;
+}
+/*----------------------------------------------------------------------------------------------------------------*/
 h1
 {
   font-size: 32px;
@@ -28,9 +53,9 @@ h1
   color: rgb(255, 255, 255);
   padding:16px;
   font-weight:bold;
-  -moz-box-shadow: 2px 2px 6px #888;  
-  -webkit-box-shadow: 2px 2px 6px #888;  
-  box-shadow:2px 2px 6px #888;  
+  -moz-box-shadow: 2px 2px 6px rgb(20, 17, 17);  
+  -webkit-box-shadow: 2px 2px 6px rgb(28, 22, 22);  
+  box-shadow:2px 2px 6px rgb(26, 20, 20);  
   text-align:center;
   display:block;
   margin:16px;
